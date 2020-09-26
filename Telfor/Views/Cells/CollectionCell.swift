@@ -45,7 +45,7 @@ class CollectionCell: UICollectionViewCell, BasicCell {
         subviewsContainer?.backgroundColor = UIColor.systemGray6
         let cornerRadius: CGFloat = 10.0
         subviewsContainer.rounded(with: cornerRadius)
-        imageView.rounded(with: cornerRadius)
+        imageView.toCircle()
     }
 
     public override func awakeFromNib() {

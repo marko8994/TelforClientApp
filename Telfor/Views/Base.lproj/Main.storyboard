@@ -95,23 +95,23 @@
                                             </collectionViewFlowLayout>
                                             <cells>
                                                 <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="basicCollectionCell" id="Jm8-j6-Cmg" userLabel="collectionCell" customClass="CollectionCell" customModule="Telfor" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="9" width="160" height="172"/>
+                                                    <rect key="frame" x="15" y="5" width="160" height="180"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="172"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="180"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jem-uE-6Ya">
-                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="172"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="180"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcW-UE-MFF">
-                                                                        <rect key="frame" x="10" y="140.5" width="140" height="21.5"/>
+                                                                        <rect key="frame" x="10" y="160" width="140" height="15"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                         <color key="textColor" red="0.19215686269999999" green="0.25098039220000001" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="an7-hl-obY">
-                                                                        <rect key="frame" x="22.5" y="20" width="115.5" height="115.5"/>
+                                                                        <rect key="frame" x="5" y="5" width="150" height="150"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="an7-hl-obY" secondAttribute="height" multiplier="1:1" id="dZr-qX-zQj"/>
                                                                         </constraints>
@@ -125,9 +125,10 @@
                                                                     <constraint firstItem="QcW-UE-MFF" firstAttribute="leading" secondItem="Jem-uE-6Ya" secondAttribute="leading" constant="10" id="1SO-wd-j9C"/>
                                                                     <constraint firstItem="QcW-UE-MFF" firstAttribute="top" secondItem="an7-hl-obY" secondAttribute="bottom" constant="5" id="MQn-4J-Zp1"/>
                                                                     <constraint firstAttribute="trailing" secondItem="QcW-UE-MFF" secondAttribute="trailing" constant="10" id="OlU-mf-blI"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="QcW-UE-MFF" secondAttribute="bottom" constant="10" id="lgA-Mf-7xl"/>
-                                                                    <constraint firstItem="an7-hl-obY" firstAttribute="top" secondItem="Jem-uE-6Ya" secondAttribute="top" constant="20" id="veS-sG-3WT"/>
-                                                                    <constraint firstItem="an7-hl-obY" firstAttribute="centerX" secondItem="Jem-uE-6Ya" secondAttribute="centerX" id="xZD-fL-e4b"/>
+                                                                    <constraint firstItem="an7-hl-obY" firstAttribute="leading" secondItem="Jem-uE-6Ya" secondAttribute="leading" constant="5" id="g20-aI-p4b"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="an7-hl-obY" secondAttribute="trailing" constant="5" id="jTi-Bp-MOH"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="QcW-UE-MFF" secondAttribute="bottom" constant="5" id="lgA-Mf-7xl"/>
+                                                                    <constraint firstItem="an7-hl-obY" firstAttribute="top" secondItem="Jem-uE-6Ya" secondAttribute="top" constant="5" id="veS-sG-3WT"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -143,7 +144,7 @@
                                                         <constraint firstItem="Jem-uE-6Ya" firstAttribute="leading" secondItem="Jm8-j6-Cmg" secondAttribute="leading" id="tvA-e4-Abw"/>
                                                         <constraint firstAttribute="bottom" secondItem="Jem-uE-6Ya" secondAttribute="bottom" id="yhm-wz-7RG"/>
                                                     </constraints>
-                                                    <size key="customSize" width="160" height="172"/>
+                                                    <size key="customSize" width="160" height="180"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isAccessibilityElement" value="YES"/>
                                                     </userDefinedRuntimeAttributes>

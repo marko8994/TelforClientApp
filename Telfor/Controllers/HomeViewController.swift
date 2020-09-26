@@ -24,7 +24,7 @@ class HomeViewController: UITableViewController {
     
     var sections: [HomeSection] = [.spotlight, .authors, .papers, .rooms]
     
-    var authors = [LightAuthor(uid: "", name: "AuthorOne", imagePath: nil),
+    var authors = [LightAuthor(uid: "", name: "AuthorOne", imagePath: "https://i.imgur.com/mc9EqKh.jpeg"),
                    LightAuthor(uid: "", name: "AuthorTwo", imagePath: nil),
                    LightAuthor(uid: "", name: "AuthorThree", imagePath: nil),
                    LightAuthor(uid: "", name: "AuthorFour", imagePath: nil),

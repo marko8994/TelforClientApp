@@ -52,11 +52,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellOne" id="ei6-Fv-iUE">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="spotlightCell" rowHeight="250" id="ei6-Fv-iUE" userLabel="SpotlightCell" customClass="SpotlightCell" customModule="Telfor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ei6-Fv-iUE" id="fVs-iF-112">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uBM-GB-bXU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="uBM-GB-bXU" firstAttribute="top" secondItem="ei6-Fv-iUE" secondAttribute="top" id="3EF-I2-USh"/>
+                                    <constraint firstItem="uBM-GB-bXU" firstAttribute="leading" secondItem="ei6-Fv-iUE" secondAttribute="leading" id="4dh-ak-1hb"/>
+                                    <constraint firstAttribute="bottom" secondItem="uBM-GB-bXU" secondAttribute="bottom" id="t4a-bB-1Jv"/>
+                                    <constraint firstAttribute="trailing" secondItem="uBM-GB-bXU" secondAttribute="trailing" id="wG3-dc-cwT"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="headerImage" destination="uBM-GB-bXU" id="xbd-x1-v3a"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="S0n-IC-d2c" userLabel="Cell" customClass="SpotlightCell" customModule="Telfor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="278" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S0n-IC-d2c" id="pPq-dC-Kk8">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

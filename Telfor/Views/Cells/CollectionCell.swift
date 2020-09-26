@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CollectionCell: UICollectionViewCell, BasicCell {
     
@@ -15,24 +16,22 @@ class CollectionCell: UICollectionViewCell, BasicCell {
     @IBOutlet weak var imageView: UIImageView!
     
     public var userData: UserData?
-    public weak var actionDelegate: BasicCellActionDelegate?
 
     public func configure(with info: BasicCellDataSource) {
         configureImageView(with: info)
         configureTitleLabel(with: info)
         userData = info.userData
-        self.actionDelegate = info.actionDelegate
         setNeedsLayout()
         layoutIfNeeded()
     }
 
 
     private func configureImageView(with info: BasicCellDataSource) {
-        guard let imageView = imageView else {return}
+        guard let imageView = imageView else { return }
         if let imagePath = info.imagePath, let imageUrl = URL(string: imagePath) {
-            imageView.load(url: imageUrl)
+            imageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "avatarPlaceholder"))
         } else {
-            imageView.load(url: nil)
+            imageView.image = UIImage(named: "avatarPlaceholder")
         }
     }
 

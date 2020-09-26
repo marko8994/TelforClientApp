@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SpotlightCell: UITableViewCell {
 
@@ -17,9 +18,11 @@ class SpotlightCell: UITableViewCell {
         // Initialization code
     }
     
-    func configure(with imageUrl: String) {
-        if let imageUrl = URL(string: imageUrl) {
-            headerImage.load(url: imageUrl)
+    func configure(with imagePath: String) {
+        if let imageUrl = URL(string: imagePath) {
+            headerImage.kf.setImage(with: imageUrl, placeholder: UIImage(named: "spotlightPlaceholder"))
+        } else {
+            headerImage.image = UIImage(named: "spotlightPlaceholder")
         }
     }
 }

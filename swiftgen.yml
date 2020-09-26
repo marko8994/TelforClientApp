@@ -1,0 +1,26 @@
+strings:
+- inputs:
+  - Telfor/Resources/en.lproj/Localizable.strings
+  outputs:
+  - output: Telfor/Resources/SwiftGenLocalizedStrings.swift
+    templateName: structured-swift4
+    params:
+        enumName: LocalizedStrings
+ib:
+- inputs:
+  - Telfor/Views/Storyboards
+  outputs:
+  - templateName: scenes-swift4
+    output: Telfor/Views/Storyboards/StoryboardScenes.swift
+  - templateName: segues-swift4
+    output: Telfor/Views/Storyboards/StoryboardSegues.swift
+xcassets:
+- inputs:
+  - Telfor/Resources/Assets.xcassets
+  outputs:
+  - output: Telfor/Resources/SwiftGenImageNames.swift
+    templateName: swift4
+    params:
+        publicAccess: true
+        enumName: Assets
+

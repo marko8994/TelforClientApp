@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,16 +21,23 @@
 		AD0CA94D251FA59E00C03165 /* LightAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA94C251FA59E00C03165 /* LightAuthor.swift */; };
 		AD0CA94F251FA5BA00C03165 /* LightPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA94E251FA5BA00C03165 /* LightPaper.swift */; };
 		AD0CA951251FA5E100C03165 /* LightRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA950251FA5E100C03165 /* LightRoom.swift */; };
+		AD0CA953251FEFB100C03165 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0CA952251FEFB100C03165 /* SectionHeaderView.xib */; };
+		AD0CA956251FF02900C03165 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA955251FF02900C03165 /* SectionHeaderView.swift */; };
+		AD0CA960252001B200C03165 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD0CA962252001B200C03165 /* Localizable.strings */; };
+		AD0CA96A252007AF00C03165 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD0CA968252007AF00C03165 /* LaunchScreen.storyboard */; };
+		AD0CA96B252007AF00C03165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD0CA969252007AF00C03165 /* Main.storyboard */; };
+		AD0CA96E252008B200C03165 /* SwiftGenImageNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA96C252008B100C03165 /* SwiftGenImageNames.swift */; };
+		AD0CA96F252008B200C03165 /* SwiftGenLocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA96D252008B100C03165 /* SwiftGenLocalizedStrings.swift */; };
 		AD83FB40251E936D000B4397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB3F251E936D000B4397 /* AppDelegate.swift */; };
 		AD83FB42251E936D000B4397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB41251E936D000B4397 /* SceneDelegate.swift */; };
 		AD83FB44251E936D000B4397 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB43251E936D000B4397 /* HomeViewController.swift */; };
-		AD83FB47251E936D000B4397 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD83FB45251E936D000B4397 /* Main.storyboard */; };
 		AD83FB49251E936E000B4397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD83FB48251E936E000B4397 /* Assets.xcassets */; };
-		AD83FB4C251E936E000B4397 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD83FB4A251E936E000B4397 /* LaunchScreen.storyboard */; };
 		AD83FB55251E9580000B4397 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB54251E9580000B4397 /* InfoViewController.swift */; };
+		B39A575C3CAFD9AF28FD3491 /* Pods_Telfor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF82876AF24E018A302DF7B /* Pods_Telfor.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A70C425EF446996CA722361B /* Pods-Telfor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telfor.debug.xcconfig"; path = "Target Support Files/Pods-Telfor/Pods-Telfor.debug.xcconfig"; sourceTree = "<group>"; };
 		AD0CA92C251E9A8A00C03165 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		AD0CA92E251E9AF400C03165 /* Paper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paper.swift; sourceTree = "<group>"; };
 		AD0CA930251E9C9A00C03165 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
@@ -45,15 +52,23 @@
 		AD0CA94C251FA59E00C03165 /* LightAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightAuthor.swift; sourceTree = "<group>"; };
 		AD0CA94E251FA5BA00C03165 /* LightPaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightPaper.swift; sourceTree = "<group>"; };
 		AD0CA950251FA5E100C03165 /* LightRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightRoom.swift; sourceTree = "<group>"; };
+		AD0CA952251FEFB100C03165 /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
+		AD0CA955251FF02900C03165 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		AD0CA961252001B200C03165 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AD0CA966252005E000C03165 /* sr-RS */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sr-RS"; path = "sr-RS.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		AD0CA968252007AF00C03165 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AD0CA969252007AF00C03165 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		AD0CA96C252008B100C03165 /* SwiftGenImageNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGenImageNames.swift; sourceTree = "<group>"; };
+		AD0CA96D252008B100C03165 /* SwiftGenLocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGenLocalizedStrings.swift; sourceTree = "<group>"; };
 		AD83FB3C251E936D000B4397 /* Telfor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telfor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD83FB3F251E936D000B4397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD83FB41251E936D000B4397 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AD83FB43251E936D000B4397 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		AD83FB46251E936D000B4397 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AD83FB48251E936E000B4397 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AD83FB4B251E936E000B4397 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD83FB4D251E936E000B4397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD83FB54251E9580000B4397 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		C7B897DF47C54779035DC8B4 /* Pods-Telfor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telfor.release.xcconfig"; path = "Target Support Files/Pods-Telfor/Pods-Telfor.release.xcconfig"; sourceTree = "<group>"; };
+		EBF82876AF24E018A302DF7B /* Pods_Telfor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Telfor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,18 +76,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39A575C3CAFD9AF28FD3491 /* Pods_Telfor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D9D19371FFACD11492B83FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBF82876AF24E018A302DF7B /* Pods_Telfor.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AD0CA92A251E99E000C03165 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AD0CA95A251FFE9A00C03165 /* Storyboards */,
+				AD0CA954251FF01300C03165 /* SectionHeaderView */,
 				AD0CA937251EAF6D00C03165 /* Cells */,
-				AD83FB4A251E936E000B4397 /* LaunchScreen.storyboard */,
-				AD83FB45251E936D000B4397 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,11 +144,42 @@
 			path = LightModels;
 			sourceTree = "<group>";
 		};
+		AD0CA954251FF01300C03165 /* SectionHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				AD0CA952251FEFB100C03165 /* SectionHeaderView.xib */,
+				AD0CA955251FF02900C03165 /* SectionHeaderView.swift */,
+			);
+			path = SectionHeaderView;
+			sourceTree = "<group>";
+		};
+		AD0CA957251FFB8200C03165 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AD0CA96C252008B100C03165 /* SwiftGenImageNames.swift */,
+				AD0CA96D252008B100C03165 /* SwiftGenLocalizedStrings.swift */,
+				AD83FB48251E936E000B4397 /* Assets.xcassets */,
+				AD0CA962252001B200C03165 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AD0CA95A251FFE9A00C03165 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AD0CA968252007AF00C03165 /* LaunchScreen.storyboard */,
+				AD0CA969252007AF00C03165 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		AD83FB33251E936D000B4397 = {
 			isa = PBXGroup;
 			children = (
 				AD83FB3E251E936D000B4397 /* Telfor */,
 				AD83FB3D251E936D000B4397 /* Products */,
+				F1FDE83F7DFC44DF928CE5D3 /* Pods */,
+				0D9D19371FFACD11492B83FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,11 +196,11 @@
 			children = (
 				AD83FB3F251E936D000B4397 /* AppDelegate.swift */,
 				AD83FB41251E936D000B4397 /* SceneDelegate.swift */,
-				AD83FB48251E936E000B4397 /* Assets.xcassets */,
 				AD83FB4D251E936E000B4397 /* Info.plist */,
 				AD0CA92A251E99E000C03165 /* Views */,
 				AD83FB53251E9504000B4397 /* Controllers */,
 				AD0CA92B251E9A7600C03165 /* Model */,
+				AD0CA957251FFB8200C03165 /* Resources */,
 				AD0CA944251F949B00C03165 /* Helpers */,
 			);
 			path = Telfor;
@@ -160,6 +215,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		F1FDE83F7DFC44DF928CE5D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A70C425EF446996CA722361B /* Pods-Telfor.debug.xcconfig */,
+				C7B897DF47C54779035DC8B4 /* Pods-Telfor.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,9 +231,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD83FB50251E936E000B4397 /* Build configuration list for PBXNativeTarget "Telfor" */;
 			buildPhases = (
+				B7E1FA98ABEA6560B48D5DF0 /* [CP] Check Pods Manifest.lock */,
 				AD83FB38251E936D000B4397 /* Sources */,
 				AD83FB39251E936D000B4397 /* Frameworks */,
 				AD83FB3A251E936D000B4397 /* Resources */,
+				67A426E801A8CEC2840EABF2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,6 +268,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"sr-RS",
 			);
 			mainGroup = AD83FB33251E936D000B4397;
 			productRefGroup = AD83FB3D251E936D000B4397 /* Products */;
@@ -218,13 +285,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD83FB4C251E936E000B4397 /* LaunchScreen.storyboard in Resources */,
+				AD0CA960252001B200C03165 /* Localizable.strings in Resources */,
+				AD0CA96B252007AF00C03165 /* Main.storyboard in Resources */,
+				AD0CA96A252007AF00C03165 /* LaunchScreen.storyboard in Resources */,
 				AD83FB49251E936E000B4397 /* Assets.xcassets in Resources */,
-				AD83FB47251E936D000B4397 /* Main.storyboard in Resources */,
+				AD0CA953251FEFB100C03165 /* SectionHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		67A426E801A8CEC2840EABF2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Telfor/Pods-Telfor-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Telfor/Pods-Telfor-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Telfor/Pods-Telfor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7E1FA98ABEA6560B48D5DF0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Telfor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AD83FB38251E936D000B4397 /* Sources */ = {
@@ -232,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD83FB44251E936D000B4397 /* HomeViewController.swift in Sources */,
+				AD0CA96F252008B200C03165 /* SwiftGenLocalizedStrings.swift in Sources */,
 				AD0CA93B251F873600C03165 /* CollectionContainerCell.swift in Sources */,
 				AD83FB40251E936D000B4397 /* AppDelegate.swift in Sources */,
 				AD0CA931251E9C9B00C03165 /* Room.swift in Sources */,
@@ -240,6 +352,8 @@
 				AD0CA939251EAF8000C03165 /* SpotlightCell.swift in Sources */,
 				AD0CA94D251FA59E00C03165 /* LightAuthor.swift in Sources */,
 				AD0CA946251F94B400C03165 /* DeviceInfo.swift in Sources */,
+				AD0CA96E252008B200C03165 /* SwiftGenImageNames.swift in Sources */,
+				AD0CA956251FF02900C03165 /* SectionHeaderView.swift in Sources */,
 				AD83FB42251E936D000B4397 /* SceneDelegate.swift in Sources */,
 				AD0CA941251F89FB00C03165 /* BasicTableViewCell.swift in Sources */,
 				AD0CA94F251FA5BA00C03165 /* LightPaper.swift in Sources */,
@@ -255,20 +369,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AD83FB45251E936D000B4397 /* Main.storyboard */ = {
+		AD0CA962252001B200C03165 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AD83FB46251E936D000B4397 /* Base */,
+				AD0CA961252001B200C03165 /* en */,
+				AD0CA966252005E000C03165 /* sr-RS */,
 			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AD83FB4A251E936E000B4397 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD83FB4B251E936E000B4397 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -278,6 +385,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -338,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -390,6 +499,7 @@
 		};
 		AD83FB51251E936E000B4397 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A70C425EF446996CA722361B /* Pods-Telfor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -408,6 +518,7 @@
 		};
 		AD83FB52251E936E000B4397 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7B897DF47C54779035DC8B4 /* Pods-Telfor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

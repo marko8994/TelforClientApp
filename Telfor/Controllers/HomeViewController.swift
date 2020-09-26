@@ -15,12 +15,16 @@ enum HomeSection: Int {
     case rooms
 }
 
+typealias CellActionsDelegate =  CollectionContainerActionDelegate & SectionHeaderActionDelegate
+
 typealias HomeModel = (imagePath: String, authors: [LightAuthor], papers: [LightPaper], rooms: [LightRoom])
 
 class HomeViewController: UITableViewController {
     
     private var model: HomeModel!
     private var cellInfos = [HomeSection: [BasicCellInfo]]()
+    
+    weak var cellActionsDelegate: CellActionsDelegate?
     
     var sections: [HomeSection] = [.spotlight, .authors, .papers, .rooms]
     
@@ -50,7 +54,9 @@ class HomeViewController: UITableViewController {
                  LightRoom(uid: "", name: "RoomSix"),
                  LightRoom(uid: "", name: "RoomSeven"),
                  LightRoom(uid: "", name: "RoomEight"),
-                 LightRoom(uid: "", name: "RoomNine")]
+                 LightRoom(uid: "", name: "RoomNine"),
+                 LightRoom(uid: "", name: "RoomTen"),
+                 LightRoom(uid: "", name: "RoomEleven")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -170,9 +176,45 @@ extension HomeViewController {
             return UITableView.automaticDimension
         }
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let section = sections[section]
+        guard section != .spotlight else { return nil }
+        var sectionTitle: String?
+        let nibName = "SectionHeaderView"
+        switch section {
+        case .authors:
+            sectionTitle = LocalizedStrings.Common.authors
+        case .papers:
+            sectionTitle = LocalizedStrings.Common.papers
+        case .rooms:
+            sectionTitle = LocalizedStrings.Common.rooms
+        default:
+            return nil
+        }
+        if let header = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as? SectionHeaderView {
+            let hideButton = cellInfos[section]?.count ?? 0 <= 10
+            header.configure(userData: section,
+                             title: sectionTitle!,
+                             hideButton: hideButton,
+                             actionDelegate: cellActionsDelegate)
+            return header
+        }
+        fatalError("Can't find nib with name: \(String(describing: nibName))")
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let section = sections[section]
+        switch section {
+        case .authors, .papers, .rooms:
+            return 34
+        default:
+            return CGFloat.leastNormalMagnitude
+        }
+    }
 }
 
-extension HomeViewController: BasicCollectionContainerActionDelegate {
+extension HomeViewController: CollectionContainerActionDelegate {
     
     public func cell(_ cell: CollectionContainerCell, collectionItemSelectedWithUserData userData: Any?) {
         if let params = userData as? (HomeSection, String) {

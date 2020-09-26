@@ -8,11 +8,11 @@
 
 import UIKit
 
-public protocol BasicCollectionContainerActionDelegate: class {
+public protocol CollectionContainerActionDelegate: class {
     func cell(_ cell: CollectionContainerCell,
               collectionItemSelectedWithUserData userData: UserData?)
 }
-public extension BasicCollectionContainerActionDelegate {
+public extension CollectionContainerActionDelegate {
     func cell(_ cell: CollectionContainerCell,
               collectionItemSelectedWithUserData userData: UserData?) {}
 }
@@ -42,7 +42,7 @@ public class CollectionContainerCell: UITableViewCell {
     }
 
     public func configure(items: [BasicCellDataSource],
-                          actionDelegate: BasicCollectionContainerActionDelegate? = nil) {
+                          actionDelegate: CollectionContainerActionDelegate? = nil) {
         collectionDataSource = CollectionDataSource(containerCell: self,
                                                     collectionView: collectionView,
                                                     items: items,

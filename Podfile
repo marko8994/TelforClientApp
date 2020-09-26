@@ -6,7 +6,7 @@ target 'Telfor' do
   use_frameworks!
 
   # Pods for Telfor
-
 pod 'Kingfisher', '~> 5.0'
+pod 'SwiftGen', '6.1.0'
 
 end

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,9 @@
 		AD0CA94D251FA59E00C03165 /* LightAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA94C251FA59E00C03165 /* LightAuthor.swift */; };
 		AD0CA94F251FA5BA00C03165 /* LightPaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA94E251FA5BA00C03165 /* LightPaper.swift */; };
 		AD0CA951251FA5E100C03165 /* LightRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA950251FA5E100C03165 /* LightRoom.swift */; };
+		AD0CA953251FEFB100C03165 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0CA952251FEFB100C03165 /* SectionHeaderView.xib */; };
+		AD0CA956251FF02900C03165 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA955251FF02900C03165 /* SectionHeaderView.swift */; };
+		AD0CA960252001B200C03165 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD0CA962252001B200C03165 /* Localizable.strings */; };
 		AD83FB40251E936D000B4397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB3F251E936D000B4397 /* AppDelegate.swift */; };
 		AD83FB42251E936D000B4397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB41251E936D000B4397 /* SceneDelegate.swift */; };
 		AD83FB44251E936D000B4397 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB43251E936D000B4397 /* HomeViewController.swift */; };
@@ -47,6 +50,10 @@
 		AD0CA94C251FA59E00C03165 /* LightAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightAuthor.swift; sourceTree = "<group>"; };
 		AD0CA94E251FA5BA00C03165 /* LightPaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightPaper.swift; sourceTree = "<group>"; };
 		AD0CA950251FA5E100C03165 /* LightRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightRoom.swift; sourceTree = "<group>"; };
+		AD0CA952251FEFB100C03165 /* SectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionHeaderView.xib; sourceTree = "<group>"; };
+		AD0CA955251FF02900C03165 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		AD0CA961252001B200C03165 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AD0CA966252005E000C03165 /* sr-RS */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sr-RS"; path = "sr-RS.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AD83FB3C251E936D000B4397 /* Telfor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telfor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD83FB3F251E936D000B4397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD83FB41251E936D000B4397 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,9 +90,9 @@
 		AD0CA92A251E99E000C03165 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AD0CA95A251FFE9A00C03165 /* Storyboards */,
+				AD0CA954251FF01300C03165 /* SectionHeaderView */,
 				AD0CA937251EAF6D00C03165 /* Cells */,
-				AD83FB4A251E936E000B4397 /* LaunchScreen.storyboard */,
-				AD83FB45251E936D000B4397 /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -133,6 +140,33 @@
 			path = LightModels;
 			sourceTree = "<group>";
 		};
+		AD0CA954251FF01300C03165 /* SectionHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				AD0CA952251FEFB100C03165 /* SectionHeaderView.xib */,
+				AD0CA955251FF02900C03165 /* SectionHeaderView.swift */,
+			);
+			path = SectionHeaderView;
+			sourceTree = "<group>";
+		};
+		AD0CA957251FFB8200C03165 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AD83FB48251E936E000B4397 /* Assets.xcassets */,
+				AD0CA962252001B200C03165 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AD0CA95A251FFE9A00C03165 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AD83FB4A251E936E000B4397 /* LaunchScreen.storyboard */,
+				AD83FB45251E936D000B4397 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		AD83FB33251E936D000B4397 = {
 			isa = PBXGroup;
 			children = (
@@ -156,11 +190,11 @@
 			children = (
 				AD83FB3F251E936D000B4397 /* AppDelegate.swift */,
 				AD83FB41251E936D000B4397 /* SceneDelegate.swift */,
-				AD83FB48251E936E000B4397 /* Assets.xcassets */,
 				AD83FB4D251E936E000B4397 /* Info.plist */,
 				AD0CA92A251E99E000C03165 /* Views */,
 				AD83FB53251E9504000B4397 /* Controllers */,
 				AD0CA92B251E9A7600C03165 /* Model */,
+				AD0CA957251FFB8200C03165 /* Resources */,
 				AD0CA944251F949B00C03165 /* Helpers */,
 			);
 			path = Telfor;
@@ -181,7 +215,6 @@
 				A70C425EF446996CA722361B /* Pods-Telfor.debug.xcconfig */,
 				C7B897DF47C54779035DC8B4 /* Pods-Telfor.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -229,6 +262,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"sr-RS",
 			);
 			mainGroup = AD83FB33251E936D000B4397;
 			productRefGroup = AD83FB3D251E936D000B4397 /* Products */;
@@ -245,9 +279,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD0CA960252001B200C03165 /* Localizable.strings in Resources */,
 				AD83FB4C251E936E000B4397 /* LaunchScreen.storyboard in Resources */,
 				AD83FB49251E936E000B4397 /* Assets.xcassets in Resources */,
 				AD83FB47251E936D000B4397 /* Main.storyboard in Resources */,
+				AD0CA953251FEFB100C03165 /* SectionHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +345,7 @@
 				AD0CA939251EAF8000C03165 /* SpotlightCell.swift in Sources */,
 				AD0CA94D251FA59E00C03165 /* LightAuthor.swift in Sources */,
 				AD0CA946251F94B400C03165 /* DeviceInfo.swift in Sources */,
+				AD0CA956251FF02900C03165 /* SectionHeaderView.swift in Sources */,
 				AD83FB42251E936D000B4397 /* SceneDelegate.swift in Sources */,
 				AD0CA941251F89FB00C03165 /* BasicTableViewCell.swift in Sources */,
 				AD0CA94F251FA5BA00C03165 /* LightPaper.swift in Sources */,
@@ -324,6 +361,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		AD0CA962252001B200C03165 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD0CA961252001B200C03165 /* en */,
+				AD0CA966252005E000C03165 /* sr-RS */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		AD83FB45251E936D000B4397 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -347,6 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -407,6 +454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -16,13 +16,11 @@ class CollectionCell: UICollectionViewCell, BasicCell {
     @IBOutlet weak var imageView: UIImageView!
     
     public var userData: UserData?
-    public weak var actionDelegate: BasicCellActionDelegate?
 
     public func configure(with info: BasicCellDataSource) {
         configureImageView(with: info)
         configureTitleLabel(with: info)
         userData = info.userData
-        self.actionDelegate = info.actionDelegate
         setNeedsLayout()
         layoutIfNeeded()
     }

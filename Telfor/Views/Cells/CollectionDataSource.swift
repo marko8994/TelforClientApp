@@ -13,12 +13,12 @@ public class CollectionDataSource: NSObject, UICollectionViewDataSource, UIColle
     private weak var containerCell: CollectionContainerCell?
     private weak var collectionView: UICollectionView!
     private var items: [BasicCellDataSource]
-    public weak var actionDelegate: BasicCollectionContainerActionDelegate?
+    public weak var actionDelegate: CollectionContainerActionDelegate?
 
     init(containerCell: CollectionContainerCell,
          collectionView: UICollectionView,
          items: [BasicCellDataSource],
-         actionDelegate: BasicCollectionContainerActionDelegate? = nil) {
+         actionDelegate: CollectionContainerActionDelegate? = nil) {
         self.containerCell = containerCell
         self.collectionView = collectionView
         self.items = items

@@ -1,0 +1,6 @@
+framework module Pods_Telfor {
+  umbrella header "Pods-Telfor-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,3 +7,6 @@
 */
 
 "Common.Authors" = "Authors";
+"Common.Papers" = "Papers";
+"Common.Rooms" = "Rooms";
+"Common.ViewAll" = "View all";

@@ -184,11 +184,11 @@ extension HomeViewController {
         let nibName = "SectionHeaderView"
         switch section {
         case .authors:
-            sectionTitle = "Authors"
+            sectionTitle = LocalizedStrings.Common.authors
         case .papers:
-            sectionTitle = "Papers"
+            sectionTitle = LocalizedStrings.Common.papers
         case .rooms:
-            sectionTitle = "Rooms"
+            sectionTitle = LocalizedStrings.Common.rooms
         default:
             return nil
         }

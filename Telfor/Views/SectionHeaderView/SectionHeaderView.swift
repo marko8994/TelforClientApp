@@ -28,7 +28,7 @@ public class SectionHeaderView: UIView {
     public override func awakeFromNib() {
         super.awakeFromNib()
         self.rounded(with: 5.0)
-        button.setTitle("View all", for: .normal)
+        button.setTitle(LocalizedStrings.Common.viewAll, for: .normal)
     }
 
     @objc private func buttonTapped() {

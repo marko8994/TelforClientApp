@@ -15,6 +15,12 @@ internal enum LocalizedStrings {
   internal enum Common {
     /// Authors
     internal static let authors = LocalizedStrings.tr("Localizable", "Common.Authors")
+    /// Papers
+    internal static let papers = LocalizedStrings.tr("Localizable", "Common.Papers")
+    /// Rooms
+    internal static let rooms = LocalizedStrings.tr("Localizable", "Common.Rooms")
+    /// View all
+    internal static let viewAll = LocalizedStrings.tr("Localizable", "Common.ViewAll")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

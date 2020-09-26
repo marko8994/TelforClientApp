@@ -24,12 +24,12 @@
 		AD0CA953251FEFB100C03165 /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0CA952251FEFB100C03165 /* SectionHeaderView.xib */; };
 		AD0CA956251FF02900C03165 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA955251FF02900C03165 /* SectionHeaderView.swift */; };
 		AD0CA960252001B200C03165 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD0CA962252001B200C03165 /* Localizable.strings */; };
+		AD0CA96A252007AF00C03165 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD0CA968252007AF00C03165 /* LaunchScreen.storyboard */; };
+		AD0CA96B252007AF00C03165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD0CA969252007AF00C03165 /* Main.storyboard */; };
 		AD83FB40251E936D000B4397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB3F251E936D000B4397 /* AppDelegate.swift */; };
 		AD83FB42251E936D000B4397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB41251E936D000B4397 /* SceneDelegate.swift */; };
 		AD83FB44251E936D000B4397 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB43251E936D000B4397 /* HomeViewController.swift */; };
-		AD83FB47251E936D000B4397 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD83FB45251E936D000B4397 /* Main.storyboard */; };
 		AD83FB49251E936E000B4397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD83FB48251E936E000B4397 /* Assets.xcassets */; };
-		AD83FB4C251E936E000B4397 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD83FB4A251E936E000B4397 /* LaunchScreen.storyboard */; };
 		AD83FB55251E9580000B4397 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB54251E9580000B4397 /* InfoViewController.swift */; };
 		B39A575C3CAFD9AF28FD3491 /* Pods_Telfor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF82876AF24E018A302DF7B /* Pods_Telfor.framework */; };
 /* End PBXBuildFile section */
@@ -54,13 +54,13 @@
 		AD0CA955251FF02900C03165 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		AD0CA961252001B200C03165 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AD0CA966252005E000C03165 /* sr-RS */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "sr-RS"; path = "sr-RS.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		AD0CA968252007AF00C03165 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AD0CA969252007AF00C03165 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AD83FB3C251E936D000B4397 /* Telfor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telfor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD83FB3F251E936D000B4397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD83FB41251E936D000B4397 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AD83FB43251E936D000B4397 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		AD83FB46251E936D000B4397 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AD83FB48251E936E000B4397 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AD83FB4B251E936E000B4397 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD83FB4D251E936E000B4397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD83FB54251E9580000B4397 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		C7B897DF47C54779035DC8B4 /* Pods-Telfor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telfor.release.xcconfig"; path = "Target Support Files/Pods-Telfor/Pods-Telfor.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,8 +161,8 @@
 		AD0CA95A251FFE9A00C03165 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				AD83FB4A251E936E000B4397 /* LaunchScreen.storyboard */,
-				AD83FB45251E936D000B4397 /* Main.storyboard */,
+				AD0CA968252007AF00C03165 /* LaunchScreen.storyboard */,
+				AD0CA969252007AF00C03165 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -280,9 +280,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0CA960252001B200C03165 /* Localizable.strings in Resources */,
-				AD83FB4C251E936E000B4397 /* LaunchScreen.storyboard in Resources */,
+				AD0CA96B252007AF00C03165 /* Main.storyboard in Resources */,
+				AD0CA96A252007AF00C03165 /* LaunchScreen.storyboard in Resources */,
 				AD83FB49251E936E000B4397 /* Assets.xcassets in Resources */,
-				AD83FB47251E936D000B4397 /* Main.storyboard in Resources */,
 				AD0CA953251FEFB100C03165 /* SectionHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,22 +368,6 @@
 				AD0CA966252005E000C03165 /* sr-RS */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		AD83FB45251E936D000B4397 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD83FB46251E936D000B4397 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AD83FB4A251E936E000B4397 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD83FB4B251E936E000B4397 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

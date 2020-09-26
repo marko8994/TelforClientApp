@@ -19,12 +19,7 @@ class SpotlightCell: UITableViewCell {
     
     func configure(with imageUrl: String) {
         if let imageUrl = URL(string: imageUrl) {
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: imageUrl)
-                DispatchQueue.main.async {
-                    self.headerImage.image = UIImage(data: data!)
-                }
-            }
+            headerImage.load(url: imageUrl)
         }
     }
 }

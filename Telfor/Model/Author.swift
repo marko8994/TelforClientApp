@@ -14,5 +14,6 @@ struct Author: Codable {
     let organizationName: String
     let position: String
     let imagePath: String?
-    let summary: String?
+    let biography: String?
+    let papers: [LightPaper]?
 }

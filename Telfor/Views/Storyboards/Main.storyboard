@@ -226,10 +226,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="03T-Xc-5mO"/>
+                    <connections>
+                        <segue destination="qJz-Lv-eSK" kind="show" identifier="authorDetails" id="OeB-eM-xCd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30Q-rG-xwR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1667" y="-439"/>
+        </scene>
+        <!--AuthorDetailsViewController-->
+        <scene sceneID="cNJ-Rd-vpH">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="AuthorDetailsViewController" storyboardName="Author" referencedIdentifier="AuthorDetailsViewController" id="qJz-Lv-eSK" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zNq-oU-vsP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qhH-GE-aCE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2382" y="-547"/>
         </scene>
         <!--Info-->
         <scene sceneID="rLj-vW-LMj">

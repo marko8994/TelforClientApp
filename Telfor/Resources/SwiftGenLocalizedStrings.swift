@@ -13,10 +13,22 @@ import Foundation
 internal enum LocalizedStrings {
 
   internal enum Common {
+    /// Author details
+    internal static let authorDetails = LocalizedStrings.tr("Localizable", "Common.AuthorDetails")
     /// Authors
     internal static let authors = LocalizedStrings.tr("Localizable", "Common.Authors")
+    /// Biography
+    internal static let biography = LocalizedStrings.tr("Localizable", "Common.Biography")
+    /// Info
+    internal static let info = LocalizedStrings.tr("Localizable", "Common.Info")
+    /// Name
+    internal static let name = LocalizedStrings.tr("Localizable", "Common.Name")
+    /// Organization
+    internal static let organization = LocalizedStrings.tr("Localizable", "Common.Organization")
     /// Papers
     internal static let papers = LocalizedStrings.tr("Localizable", "Common.Papers")
+    /// Position
+    internal static let position = LocalizedStrings.tr("Localizable", "Common.Position")
     /// Rooms
     internal static let rooms = LocalizedStrings.tr("Localizable", "Common.Rooms")
     /// View all

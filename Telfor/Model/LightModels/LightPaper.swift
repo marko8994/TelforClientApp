@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LightPaper: Codable {
+public struct LightPaper: Codable {
     let uid: String
     let title: String
     let authorNames: [String]

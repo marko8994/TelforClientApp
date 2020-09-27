@@ -7,33 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4BC27F4C-441B-4B93-929F-1FA81ACA8874"
-            shouldBeEnabled = "Yes"
+            uuid = "0F57DC3D-C499-4907-9179-DF47377FB5A8"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Telfor/Controllers/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "tableView(_:viewForHeaderInSection:)"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "cell(_:collectionItemSelectedWithUserData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DB140E86-7C97-4C67-8B7C-F49CD2430698"
+            uuid = "A3A5AB94-3DD8-4D0B-8B16-46540CA77A12"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Telfor/Views/SectionHeaderView/SectionHeaderView.swift"
+            filePath = "Telfor/Views/Cells/TableTextViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "configure(userData:title:influencerTitle:hideButton:actionDelegate:)"
-            landmarkType = "7">
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "content"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

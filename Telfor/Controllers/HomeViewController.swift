@@ -21,6 +21,8 @@ typealias HomeModel = (imagePath: String, authors: [LightAuthor], papers: [Light
 
 class HomeViewController: UITableViewController {
     
+    private typealias Segues = StoryboardSegue.Main
+    
     private var model: HomeModel!
     private var cellInfos = [HomeSection: [BasicCellInfo]]()
     
@@ -61,6 +63,7 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Telfor 2019"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         fetchData()
         setupCellInfos()
         tableView.tableFooterView = UIView()
@@ -74,22 +77,27 @@ class HomeViewController: UITableViewController {
     private func setupCellInfos() {
         var authorCellInfos = [BasicCellInfo]()
         for author in model.authors {
-            let userData = (section: HomeSection.authors, authorUid: author.uid)
+            let authorFull = Author(uid: "", name: "AuthorName", organizationName: "LoremIpsum", position: "PositionName",
+                                imagePath: "https://i.imgur.com/mc9EqKh.jpeg", biography: """
+                                Why do we use it?
+                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+                        """,
+                papers: papers)
+            let userData = (section: HomeSection.authors, authorUid: authorFull)
             let cellInfo = BasicCellInfo(userData: userData, imagePath: author.imagePath, title: author.name)
             authorCellInfos.append(cellInfo)
         }
         cellInfos[.authors] = authorCellInfos
         var paperCellInfos = [BasicCellInfo]()
         for paper in model.papers {
-            let userData = (section: HomeSection.papers, paperUid: paper.uid)
-            let cellInfo = BasicCellInfo(userData: userData, title: paper.title, subtitle: paper.authorNames.joined(separator: ", "))
+            let cellInfo = BasicCellInfo(title: paper.title, subtitle: paper.authorNames.joined(separator: ", "))
             paperCellInfos.append(cellInfo)
         }
         cellInfos[.papers] = paperCellInfos
         var roomCellInfos = [BasicCellInfo]()
         for room in model.rooms {
-            let userData = (section: HomeSection.papers, roomUid: room.uid)
-            let cellInfo = BasicCellInfo(userData: userData, title: room.name)
+            let cellInfo = BasicCellInfo(title: room.name)
             roomCellInfos.append(cellInfo)
         }
         cellInfos[.rooms] = roomCellInfos
@@ -104,17 +112,17 @@ class HomeViewController: UITableViewController {
             } else {
                 flowLayout.itemSize.width = 160.0
             }
-            
-//            if items.count == 1 {
-//                let collectionViewSectionPadding: CGFloat = 15
-//                flowLayout.itemSize.width = UIScreen.main.bounds.width - (collectionViewSectionPadding * 2)
-//            } else {
-//                if DeviceInfo.isCompactScreen {
-//                    flowLayout.itemSize.width = 140.0
-//                } else {
-//                    flowLayout.itemSize.width = 160.0
-//                }
-//            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch Segues(segue) {
+        case .authorDetails:
+            guard let viewController = segue.destination as? AuthorDetailsViewController,
+                let author = sender as? Author else { return }
+            viewController.author = author
+        default:
+            return
         }
     }
 }
@@ -158,6 +166,16 @@ extension HomeViewController {
             return 1
         default:
             return cellInfos[section]?.count ?? 0
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = sections[indexPath.section]
+        switch section {
+        case .papers:
+            return
+        default:
+            return
         }
     }
     
@@ -217,19 +235,8 @@ extension HomeViewController {
 extension HomeViewController: CollectionContainerActionDelegate {
     
     public func cell(_ cell: CollectionContainerCell, collectionItemSelectedWithUserData userData: Any?) {
-        if let params = userData as? (HomeSection, String) {
-            let section = params.0
-            let itemUid = params.1
-            switch section {
-            case .authors:
-                performSegue(withIdentifier: "authorDetails", sender: itemUid)
-            case .papers:
-                performSegue(withIdentifier: "paperDetails", sender: itemUid)
-            case .rooms:
-                performSegue(withIdentifier: "roomDetails", sender: itemUid)
-            default:
-                return
-            }
+        if let params = userData as? (HomeSection, Author), params.0 == .authors {
+            perform(segue: Segues.authorDetails, sender: params.1)
         }
     }
 }

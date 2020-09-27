@@ -23,4 +23,9 @@ public struct BasicCellInfo: BasicCellDataSource {
         self.title = title
         self.subtitle = subtitle
     }
+    
+    public init(with paper: LightPaper) {
+        title = paper.title
+        subtitle = paper.authorNames.joined(separator: ", ")
+    }
 }

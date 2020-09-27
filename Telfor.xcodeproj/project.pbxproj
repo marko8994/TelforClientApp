@@ -28,6 +28,11 @@
 		AD0CA96B252007AF00C03165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD0CA969252007AF00C03165 /* Main.storyboard */; };
 		AD0CA96E252008B200C03165 /* SwiftGenImageNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA96C252008B100C03165 /* SwiftGenImageNames.swift */; };
 		AD0CA96F252008B200C03165 /* SwiftGenLocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA96D252008B100C03165 /* SwiftGenLocalizedStrings.swift */; };
+		AD0CA97125200B6600C03165 /* Author.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD0CA97025200B6600C03165 /* Author.storyboard */; };
+		AD0CA97425200B6F00C03165 /* StoryboardSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA97225200B6F00C03165 /* StoryboardSegues.swift */; };
+		AD0CA97525200B6F00C03165 /* StoryboardScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA97325200B6F00C03165 /* StoryboardScenes.swift */; };
+		AD0CA97725200BDA00C03165 /* AuthorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA97625200BDA00C03165 /* AuthorDetailsViewController.swift */; };
+		AD0CA97925201BBB00C03165 /* TableTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA97825201BBB00C03165 /* TableTextViewCell.swift */; };
 		AD83FB40251E936D000B4397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB3F251E936D000B4397 /* AppDelegate.swift */; };
 		AD83FB42251E936D000B4397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB41251E936D000B4397 /* SceneDelegate.swift */; };
 		AD83FB44251E936D000B4397 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB43251E936D000B4397 /* HomeViewController.swift */; };
@@ -60,6 +65,11 @@
 		AD0CA969252007AF00C03165 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AD0CA96C252008B100C03165 /* SwiftGenImageNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGenImageNames.swift; sourceTree = "<group>"; };
 		AD0CA96D252008B100C03165 /* SwiftGenLocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGenLocalizedStrings.swift; sourceTree = "<group>"; };
+		AD0CA97025200B6600C03165 /* Author.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Author.storyboard; sourceTree = "<group>"; };
+		AD0CA97225200B6F00C03165 /* StoryboardSegues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardSegues.swift; sourceTree = "<group>"; };
+		AD0CA97325200B6F00C03165 /* StoryboardScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardScenes.swift; sourceTree = "<group>"; };
+		AD0CA97625200BDA00C03165 /* AuthorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorDetailsViewController.swift; sourceTree = "<group>"; };
+		AD0CA97825201BBB00C03165 /* TableTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTextViewCell.swift; sourceTree = "<group>"; };
 		AD83FB3C251E936D000B4397 /* Telfor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telfor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD83FB3F251E936D000B4397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD83FB41251E936D000B4397 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +132,7 @@
 				AD0CA940251F89FB00C03165 /* BasicTableViewCell.swift */,
 				AD0CA942251F8AE700C03165 /* CellInfo.swift */,
 				AD0CA949251FA44B00C03165 /* CollectionCell.swift */,
+				AD0CA97825201BBB00C03165 /* TableTextViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -169,6 +180,9 @@
 			children = (
 				AD0CA968252007AF00C03165 /* LaunchScreen.storyboard */,
 				AD0CA969252007AF00C03165 /* Main.storyboard */,
+				AD0CA97025200B6600C03165 /* Author.storyboard */,
+				AD0CA97325200B6F00C03165 /* StoryboardScenes.swift */,
+				AD0CA97225200B6F00C03165 /* StoryboardSegues.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -211,6 +225,7 @@
 			children = (
 				AD83FB43251E936D000B4397 /* HomeViewController.swift */,
 				AD83FB54251E9580000B4397 /* InfoViewController.swift */,
+				AD0CA97625200BDA00C03165 /* AuthorDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +303,7 @@
 				AD0CA960252001B200C03165 /* Localizable.strings in Resources */,
 				AD0CA96B252007AF00C03165 /* Main.storyboard in Resources */,
 				AD0CA96A252007AF00C03165 /* LaunchScreen.storyboard in Resources */,
+				AD0CA97125200B6600C03165 /* Author.storyboard in Resources */,
 				AD83FB49251E936E000B4397 /* Assets.xcassets in Resources */,
 				AD0CA953251FEFB100C03165 /* SectionHeaderView.xib in Resources */,
 			);
@@ -346,6 +362,7 @@
 				AD0CA96F252008B200C03165 /* SwiftGenLocalizedStrings.swift in Sources */,
 				AD0CA93B251F873600C03165 /* CollectionContainerCell.swift in Sources */,
 				AD83FB40251E936D000B4397 /* AppDelegate.swift in Sources */,
+				AD0CA97725200BDA00C03165 /* AuthorDetailsViewController.swift in Sources */,
 				AD0CA931251E9C9B00C03165 /* Room.swift in Sources */,
 				AD0CA93D251F87EF00C03165 /* CollectionDataSource.swift in Sources */,
 				AD0CA92F251E9AF400C03165 /* Paper.swift in Sources */,
@@ -354,6 +371,7 @@
 				AD0CA946251F94B400C03165 /* DeviceInfo.swift in Sources */,
 				AD0CA96E252008B200C03165 /* SwiftGenImageNames.swift in Sources */,
 				AD0CA956251FF02900C03165 /* SectionHeaderView.swift in Sources */,
+				AD0CA97425200B6F00C03165 /* StoryboardSegues.swift in Sources */,
 				AD83FB42251E936D000B4397 /* SceneDelegate.swift in Sources */,
 				AD0CA941251F89FB00C03165 /* BasicTableViewCell.swift in Sources */,
 				AD0CA94F251FA5BA00C03165 /* LightPaper.swift in Sources */,
@@ -361,6 +379,8 @@
 				AD0CA951251FA5E100C03165 /* LightRoom.swift in Sources */,
 				AD0CA943251F8AE700C03165 /* CellInfo.swift in Sources */,
 				AD83FB55251E9580000B4397 /* InfoViewController.swift in Sources */,
+				AD0CA97525200B6F00C03165 /* StoryboardScenes.swift in Sources */,
+				AD0CA97925201BBB00C03165 /* TableTextViewCell.swift in Sources */,
 				AD0CA92D251E9A8A00C03165 /* Author.swift in Sources */,
 				AD0CA94A251FA44B00C03165 /* CollectionCell.swift in Sources */,
 			);

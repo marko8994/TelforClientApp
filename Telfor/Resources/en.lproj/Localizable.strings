@@ -10,3 +10,10 @@
 "Common.Papers" = "Papers";
 "Common.Rooms" = "Rooms";
 "Common.ViewAll" = "View all";
+"Common.Name" = "Name";
+"Common.Organization" = "Organization";
+"Common.Position" = "Position";
+"Common.Biography" = "Biography";
+"Common.Info" = "Info";
+"Common.AuthorDetails" = "Author details";
+

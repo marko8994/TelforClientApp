@@ -17,6 +17,7 @@ public enum TelforError: Error {
 public enum ClientHomeRouter {
     case getAll(Int)
     case getAuthor(String)
+    case getPaper(String)
 
     public func asUrl() -> URL? {
         let urlPath = baseUrl + "/api/u"
@@ -29,6 +30,8 @@ public enum ClientHomeRouter {
             return url.appendingPathComponent("home").appendingPathComponent("getAll")
         case .getAuthor(let uid):
             return url.appendingPathComponent("author").appendingPathComponent(uid)
+        case .getPaper(let uid):
+            return url.appendingPathComponent("paper").appendingPathComponent(uid)
         }
     }
     

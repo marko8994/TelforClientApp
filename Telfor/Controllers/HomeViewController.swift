@@ -62,7 +62,10 @@ class HomeViewController: UITableViewController {
         cellInfos[.authors] = authorCellInfos
         var paperCellInfos = [BasicCellInfo]()
         for paper in model.papers {
-            let cellInfo = BasicCellInfo(title: paper.title, subtitle: paper.authorNames.joined(separator: ", "))
+            let userData = (section: HomeSection.authors, paperId: paper.id)
+            let cellInfo = BasicCellInfo(userData: userData,
+                                         title: paper.title,
+                                         subtitle: paper.authorNames.joined(separator: ", "))
             paperCellInfos.append(cellInfo)
         }
         cellInfos[.papers] = paperCellInfos
@@ -92,6 +95,10 @@ class HomeViewController: UITableViewController {
             guard let viewController = segue.destination as? AuthorDetailsViewController,
                 let authorId = sender as? String else { return }
             viewController.authorId = authorId
+        case .paperDetails:
+            guard let viewController = segue.destination as? PaperDetailsViewController,
+                let paperId = sender as? String else { return }
+            viewController.paperId = paperId
         default:
             return
         }
@@ -145,7 +152,9 @@ extension HomeViewController {
         let section = sections[indexPath.section]
         switch section {
         case .papers:
-            return
+            guard let cellInfo = cellInfos[section]?[indexPath.row],
+                let params = cellInfo.userData as? (HomeSection, String) else { return }
+            perform(segue: Segues.paperDetails, sender: params.1)
         default:
             return
         }
@@ -171,14 +180,18 @@ extension HomeViewController {
         let section = sections[section]
         guard section != .spotlight else { return nil }
         var sectionTitle: String?
+        var backgroundColor: UIColor?
         let nibName = "SectionHeaderView"
         switch section {
         case .authors:
             sectionTitle = LocalizedStrings.Common.authors
+            backgroundColor = .yellow
         case .papers:
             sectionTitle = LocalizedStrings.Common.papers
+            backgroundColor = .blue
         case .rooms:
             sectionTitle = LocalizedStrings.Common.rooms
+            backgroundColor = .red
         default:
             return nil
         }
@@ -187,6 +200,7 @@ extension HomeViewController {
             header.configure(userData: section,
                              title: sectionTitle!,
                              hideButton: hideButton,
+                             backgroundColor: backgroundColor,
                              actionDelegate: cellActionsDelegate)
             return header
         }
@@ -197,7 +211,7 @@ extension HomeViewController {
         let section = sections[section]
         switch section {
         case .authors, .papers, .rooms:
-            return 34
+            return 44
         default:
             return CGFloat.leastNormalMagnitude
         }

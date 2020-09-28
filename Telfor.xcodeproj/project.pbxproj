@@ -42,6 +42,9 @@
 		AD83FB49251E936E000B4397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD83FB48251E936E000B4397 /* Assets.xcassets */; };
 		AD83FB55251E9580000B4397 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB54251E9580000B4397 /* InfoViewController.swift */; };
 		ADFAFB06252225BA00CF0D48 /* ClientApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB05252225BA00CF0D48 /* ClientApiService.swift */; };
+		ADFAFB082522804D00CF0D48 /* Paper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFAFB072522804D00CF0D48 /* Paper.storyboard */; };
+		ADFAFB0A2522813C00CF0D48 /* PaperDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB092522813C00CF0D48 /* PaperDetailsViewController.swift */; };
+		ADFAFB0C25229D8500CF0D48 /* Date+Formater.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB0B25229D8500CF0D48 /* Date+Formater.swift */; };
 		B39A575C3CAFD9AF28FD3491 /* Pods_Telfor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF82876AF24E018A302DF7B /* Pods_Telfor.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +88,9 @@
 		AD83FB4D251E936E000B4397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD83FB54251E9580000B4397 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		ADFAFB05252225BA00CF0D48 /* ClientApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientApiService.swift; sourceTree = "<group>"; };
+		ADFAFB072522804D00CF0D48 /* Paper.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Paper.storyboard; sourceTree = "<group>"; };
+		ADFAFB092522813C00CF0D48 /* PaperDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperDetailsViewController.swift; sourceTree = "<group>"; };
+		ADFAFB0B25229D8500CF0D48 /* Date+Formater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formater.swift"; sourceTree = "<group>"; };
 		C7B897DF47C54779035DC8B4 /* Pods-Telfor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telfor.release.xcconfig"; path = "Target Support Files/Pods-Telfor/Pods-Telfor.release.xcconfig"; sourceTree = "<group>"; };
 		EBF82876AF24E018A302DF7B /* Pods_Telfor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Telfor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -150,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				AD0CA945251F94B400C03165 /* DeviceInfo.swift */,
+				ADFAFB0B25229D8500CF0D48 /* Date+Formater.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -192,6 +199,7 @@
 				AD0CA97025200B6600C03165 /* Author.storyboard */,
 				AD0CA97325200B6F00C03165 /* StoryboardScenes.swift */,
 				AD0CA97225200B6F00C03165 /* StoryboardSegues.swift */,
+				ADFAFB072522804D00CF0D48 /* Paper.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -254,6 +262,7 @@
 				AD83FB43251E936D000B4397 /* HomeViewController.swift */,
 				AD83FB54251E9580000B4397 /* InfoViewController.swift */,
 				AD0CA97625200BDA00C03165 /* AuthorDetailsViewController.swift */,
+				ADFAFB092522813C00CF0D48 /* PaperDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -330,6 +339,7 @@
 			files = (
 				AD0CA960252001B200C03165 /* Localizable.strings in Resources */,
 				AD0CA96B252007AF00C03165 /* Main.storyboard in Resources */,
+				ADFAFB082522804D00CF0D48 /* Paper.storyboard in Resources */,
 				AD0CA96A252007AF00C03165 /* LaunchScreen.storyboard in Resources */,
 				AD0CA97125200B6600C03165 /* Author.storyboard in Resources */,
 				AD83FB49251E936E000B4397 /* Assets.xcassets in Resources */,
@@ -386,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADFAFB0A2522813C00CF0D48 /* PaperDetailsViewController.swift in Sources */,
 				AD83FB44251E936D000B4397 /* HomeViewController.swift in Sources */,
 				AD0CA96F252008B200C03165 /* SwiftGenLocalizedStrings.swift in Sources */,
 				AD0CA93B251F873600C03165 /* CollectionContainerCell.swift in Sources */,
@@ -394,6 +405,7 @@
 				AD0CA931251E9C9B00C03165 /* Room.swift in Sources */,
 				AD0CA93D251F87EF00C03165 /* CollectionDataSource.swift in Sources */,
 				AD0CA92F251E9AF400C03165 /* Paper.swift in Sources */,
+				ADFAFB0C25229D8500CF0D48 /* Date+Formater.swift in Sources */,
 				AD0CA97C25216E9C00C03165 /* ClientHomeApi.swift in Sources */,
 				AD0CA939251EAF8000C03165 /* SpotlightCell.swift in Sources */,
 				AD0CA94D251FA59E00C03165 /* LightAuthor.swift in Sources */,

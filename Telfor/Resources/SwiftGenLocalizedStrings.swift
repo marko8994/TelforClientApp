@@ -25,12 +25,32 @@ internal enum LocalizedStrings {
     internal static let name = LocalizedStrings.tr("Localizable", "Common.Name")
     /// Organization
     internal static let organization = LocalizedStrings.tr("Localizable", "Common.Organization")
+    /// Paper details
+    internal static let paperDetails = LocalizedStrings.tr("Localizable", "Common.PaperDetails")
     /// Papers
     internal static let papers = LocalizedStrings.tr("Localizable", "Common.Papers")
+    /// Paper type
+    internal static let paperType = LocalizedStrings.tr("Localizable", "Common.PaperType")
     /// Position
     internal static let position = LocalizedStrings.tr("Localizable", "Common.Position")
+    /// PresentationDate
+    internal static let presentationDate = LocalizedStrings.tr("Localizable", "Common.PresentationDate")
+    /// QuestionForm
+    internal static let questionsForm = LocalizedStrings.tr("Localizable", "Common.QuestionsForm")
+    /// Regular paper
+    internal static let regularPaper = LocalizedStrings.tr("Localizable", "Common.RegularPaper")
+    /// Room
+    internal static let room = LocalizedStrings.tr("Localizable", "Common.Room")
     /// Rooms
     internal static let rooms = LocalizedStrings.tr("Localizable", "Common.Rooms")
+    /// Special paper
+    internal static let specialPaper = LocalizedStrings.tr("Localizable", "Common.SpecialPaper")
+    /// Students paper
+    internal static let studentsPaper = LocalizedStrings.tr("Localizable", "Common.StudentsPaper")
+    /// Summary
+    internal static let summary = LocalizedStrings.tr("Localizable", "Common.Summary")
+    /// Title
+    internal static let title = LocalizedStrings.tr("Localizable", "Common.Title")
     /// View all
     internal static let viewAll = LocalizedStrings.tr("Localizable", "Common.ViewAll")
   }

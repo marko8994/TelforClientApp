@@ -14,6 +14,9 @@ class BasicTableViewCell: UITableViewCell, BasicCell {
         textLabel?.text = dataSource.title
         if let subtitle = dataSource.subtitle {
             detailTextLabel?.text = subtitle
+        } 
+        if let accessoryType = dataSource.userData as? UITableViewCell.AccessoryType {
+            self.accessoryType = accessoryType
         }
     }
 }

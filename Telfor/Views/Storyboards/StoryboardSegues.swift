@@ -14,6 +14,10 @@ import UIKit
 internal enum StoryboardSegue {
   internal enum Main: String, SegueType {
     case authorDetails
+    case paperDetails
+  }
+  internal enum Paper: String, SegueType {
+    case authorDetails
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

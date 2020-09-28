@@ -27,7 +27,7 @@ public class SectionHeaderView: UIView {
 
     public override func awakeFromNib() {
         super.awakeFromNib()
-        self.rounded(with: 5.0)
+        self.rounded(with: 20.0)
         button.setTitle(LocalizedStrings.Common.viewAll, for: .normal)
     }
 
@@ -39,6 +39,7 @@ public class SectionHeaderView: UIView {
                           title: String? = nil,
                           influencerTitle: String? = nil,
                           hideButton: Bool = false,
+                          backgroundColor: UIColor? = nil,
                           actionDelegate: SectionHeaderActionDelegate? = nil) {
         if let title = title {
             titleLabel.text = title
@@ -48,6 +49,9 @@ public class SectionHeaderView: UIView {
                 self.userData = userData
                 self.button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
             }
+        }
+        if let backgroundColor = backgroundColor {
+            self.backgroundColor = backgroundColor.withAlphaComponent(0.7)
         }
     }
 }

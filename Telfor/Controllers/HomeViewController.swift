@@ -28,7 +28,7 @@ class HomeViewController: UITableViewController {
     
     var sections: [HomeSection] = [.spotlight, .authors, .papers, .rooms]
     
-    private lazy var homeApiService = ClientMainService()
+    private lazy var homeApiService = ClientApiService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,8 +90,8 @@ class HomeViewController: UITableViewController {
         switch Segues(segue) {
         case .authorDetails:
             guard let viewController = segue.destination as? AuthorDetailsViewController,
-                let author = sender as? Author else { return }
-            viewController.author = author
+                let authorId = sender as? String else { return }
+            viewController.authorId = authorId
         default:
             return
         }
@@ -106,7 +106,7 @@ extension HomeViewController {
         switch section {
         case .spotlight:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "spotlightCell", for: indexPath)
-                as? SpotlightCell, let model = model else { break }
+                as? SpotlightCell, let _ = model else { break }
             cell.configure(with: "https://i.imgur.com/mc9EqKh.jpeg")
             return cell
         case .authors:
@@ -131,14 +131,11 @@ extension HomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard model != nil else { return 0 }
         let section = sections[section]
         switch section {
         case .spotlight, .authors:
-            if model != nil {
-                return 1
-            } else {
-                return 0
-            }
+            return 1
         default:
             return cellInfos[section]?.count ?? 0
         }
@@ -210,7 +207,7 @@ extension HomeViewController {
 extension HomeViewController: CollectionContainerActionDelegate {
     
     public func cell(_ cell: CollectionContainerCell, collectionItemSelectedWithUserData userData: Any?) {
-        if let params = userData as? (HomeSection, Author), params.0 == .authors {
+        if let params = userData as? (HomeSection, String), params.0 == .authors {
             perform(segue: Segues.authorDetails, sender: params.1)
         }
     }

@@ -13,8 +13,8 @@ public typealias SingleCompletion<T> = (Error?, T?) -> Void
 
 class HomeDataProvider {
     
-    private lazy var homeApi: ClientMainService = {
-        return ClientMainService()
+    private lazy var homeApi: ClientApiService = {
+        return ClientApiService()
     }()
     
 //    func getAll(limit: Int, completion: @escaping SingleServiceResult<HomeModel>) {

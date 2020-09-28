@@ -11,8 +11,13 @@ import Foundation
 public typealias SingleServiceResult<T> = (T?, Error?) -> Void
 public typealias ListServiceResult<T> = ([T]?, Error?) -> Void
 
+public struct AuthorResponse: Codable {
+    let author: Author
+    let papers: [LightPaper]
+}
 
-class ClientMainService {
+
+public class ClientApiService {
 
     let defaultSession = URLSession(configuration: .default)
 
@@ -50,6 +55,34 @@ class ClientMainService {
             }
         }
         // 7
+        dataTask?.resume()
+    }
+    
+    func getAuthor(with id: String, completion: @escaping SingleServiceResult<AuthorResponse>) {
+        dataTask?.cancel()
+        guard let url = ClientHomeRouter.getAuthor(id).asUrl() else {
+            completion(nil, nil)
+            print("Invalid url passed for request")
+            return
+        }
+        dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
+            defer {
+              self?.dataTask = nil
+            }
+            if let error = error {
+              completion(nil, error)
+            } else if let data = data {
+                do {
+                    let authorResponse: AuthorResponse = try JSONDecoder().decode(AuthorResponse.self, from: data)
+                    DispatchQueue.main.async {
+                      completion(authorResponse, nil)
+                    }
+                } catch {
+                    completion(nil, error)
+                    print("Error during JSON serialization: \(error.localizedDescription)")
+                }
+            }
+        }
         dataTask?.resume()
     }
 }

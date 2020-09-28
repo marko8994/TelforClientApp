@@ -13,7 +13,7 @@ enum PaperType: Int {
     case regular
 }
 
-public struct Paper: Codable {
+public struct Paper: Decodable {
     let uid: String
     let title: String
     let summary: String

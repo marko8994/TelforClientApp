@@ -9,7 +9,7 @@
 import Foundation
 
 public struct LightPaper: Codable {
-    let uid: String
+    let id: String
     let title: String
     let authorNames: [String]
 }

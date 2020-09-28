@@ -9,6 +9,6 @@
 import Foundation
 
 struct LightRoom: Codable {
-    let uid: String
+    let id: String
     let name: String
 }

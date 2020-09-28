@@ -17,8 +17,6 @@ enum HomeSection: Int {
 
 typealias CellActionsDelegate =  CollectionContainerActionDelegate & SectionHeaderActionDelegate
 
-typealias HomeModel = (imagePath: String, authors: [LightAuthor], papers: [LightPaper], rooms: [LightRoom])
-
 class HomeViewController: UITableViewController {
     
     private typealias Segues = StoryboardSegue.Main
@@ -30,61 +28,34 @@ class HomeViewController: UITableViewController {
     
     var sections: [HomeSection] = [.spotlight, .authors, .papers, .rooms]
     
-    var authors = [LightAuthor(uid: "", name: "AuthorOne", imagePath: "https://i.imgur.com/mc9EqKh.jpeg"),
-                   LightAuthor(uid: "", name: "AuthorTwo", imagePath: nil),
-                   LightAuthor(uid: "", name: "AuthorThree", imagePath: nil),
-                   LightAuthor(uid: "", name: "AuthorFour", imagePath: nil),
-                   LightAuthor(uid: "", name: "AuthorFive", imagePath: nil),
-                   LightAuthor(uid: "", name: "AuthorSix", imagePath: nil),
-                   LightAuthor(uid: "", name: "AuthorSeven", imagePath: nil)]
-    
-    var papers = [LightPaper(uid: "", title: "PaperOne", authorNames: ["AuthorOne", "AuthorTwo"]),
-                  LightPaper(uid: "", title: "PaperOne", authorNames: ["AuthorOne", "AuthorTwo"]),
-                  LightPaper(uid: "", title: "PaperOne", authorNames: ["AuthorOne", "AuthorTwo"]),
-                  LightPaper(uid: "", title: "PaperOne", authorNames: ["AuthorOne", "AuthorTwo"]),
-                  LightPaper(uid: "", title: "PaperOne", authorNames: ["AuthorOne", "AuthorTwo"]),
-                  LightPaper(uid: "", title: "PaperOne", authorNames: ["AuthorOne", "AuthorTwo"]),
-                  LightPaper(uid: "", title: "PaperOne", authorNames: ["AuthorOne", "AuthorTwo"]),
-                  LightPaper(uid: "", title: "PaperOne", authorNames: ["AuthorOne", "AuthorTwo"]),
-                  LightPaper(uid: "", title: "PaperOne", authorNames: ["AuthorOne", "AuthorTwo"])]
-    
-    var rooms = [LightRoom(uid: "", name: "RoomOne"),
-                 LightRoom(uid: "", name: "RoomTwo"),
-                 LightRoom(uid: "", name: "RoomThree"),
-                 LightRoom(uid: "", name: "RoomFour"),
-                 LightRoom(uid: "", name: "RoomFive"),
-                 LightRoom(uid: "", name: "RoomSix"),
-                 LightRoom(uid: "", name: "RoomSeven"),
-                 LightRoom(uid: "", name: "RoomEight"),
-                 LightRoom(uid: "", name: "RoomNine"),
-                 LightRoom(uid: "", name: "RoomTen"),
-                 LightRoom(uid: "", name: "RoomEleven")]
+    private lazy var homeDataProvider = HomeDataProvider()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Telfor 2019"
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         fetchData()
-        setupCellInfos()
         tableView.tableFooterView = UIView()
     }
     
     private func fetchData() {
-        model = HomeModel(imagePath: "https://i.imgur.com/mc9EqKh.jpeg",
-                          authors: authors, papers: papers, rooms: rooms)
+        homeDataProvider.getAll(limit: 10) { (error, homeData) in
+            guard error == nil else {
+                return
+            }
+            guard let model = homeData else {
+                return
+            }
+            self.model = model
+            self.setupCellInfos()
+            self.tableView.reloadData()
+        }
     }
     
     private func setupCellInfos() {
         var authorCellInfos = [BasicCellInfo]()
         for author in model.authors {
-            let authorFull = Author(uid: "", name: "AuthorName", organizationName: "LoremIpsum", position: "PositionName",
-                                imagePath: "https://i.imgur.com/mc9EqKh.jpeg", biography: """
-                                Why do we use it?
-                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-                        """,
-                papers: papers)
-            let userData = (section: HomeSection.authors, authorUid: authorFull)
+            let userData = (section: HomeSection.authors, authorUid: author.id)
             let cellInfo = BasicCellInfo(userData: userData, imagePath: author.imagePath, title: author.name)
             authorCellInfos.append(cellInfo)
         }
@@ -135,8 +106,8 @@ extension HomeViewController {
         switch section {
         case .spotlight:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "spotlightCell", for: indexPath)
-                as? SpotlightCell else { break }
-            cell.configure(with: model.imagePath)
+                as? SpotlightCell, let model = model else { break }
+            cell.configure(with: "https://i.imgur.com/mc9EqKh.jpeg")
             return cell
         case .authors:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "collectionContainerCell", for: indexPath)
@@ -163,7 +134,11 @@ extension HomeViewController {
         let section = sections[section]
         switch section {
         case .spotlight, .authors:
-            return 1
+            if model != nil {
+                return 1
+            } else {
+                return 0
+            }
         default:
             return cellInfos[section]?.count ?? 0
         }

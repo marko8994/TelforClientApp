@@ -9,7 +9,7 @@
 import Foundation
 
 struct LightAuthor: Codable {
-    let uid: String
+    let id: String
     let name: String
     let imagePath: String?
 }

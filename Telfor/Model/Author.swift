@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Author: Codable {
+public struct Author: Decodable {
     let uid: String
     let name: String
     let organizationName: String

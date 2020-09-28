@@ -29,9 +29,9 @@ class CollectionCell: UICollectionViewCell, BasicCell {
     private func configureImageView(with info: BasicCellDataSource) {
         guard let imageView = imageView else { return }
         if let imagePath = info.imagePath, let imageUrl = URL(string: imagePath) {
-            imageView.kf.setImage(with: imageUrl, placeholder: UIImage(named: "avatarPlaceholder"))
+            imageView.kf.setImage(with: imageUrl, placeholder: Assets.avatarPlaceholder.image)
         } else {
-            imageView.image = UIImage(named: "avatarPlaceholder")
+            imageView.image = Assets.avatarPlaceholder.image
         }
     }
 

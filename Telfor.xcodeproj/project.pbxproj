@@ -41,7 +41,7 @@
 		AD83FB44251E936D000B4397 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB43251E936D000B4397 /* HomeViewController.swift */; };
 		AD83FB49251E936E000B4397 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD83FB48251E936E000B4397 /* Assets.xcassets */; };
 		AD83FB55251E9580000B4397 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB54251E9580000B4397 /* InfoViewController.swift */; };
-		ADFAFB06252225BA00CF0D48 /* ClientMainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB05252225BA00CF0D48 /* ClientMainService.swift */; };
+		ADFAFB06252225BA00CF0D48 /* ClientApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB05252225BA00CF0D48 /* ClientApiService.swift */; };
 		B39A575C3CAFD9AF28FD3491 /* Pods_Telfor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF82876AF24E018A302DF7B /* Pods_Telfor.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +84,7 @@
 		AD83FB48251E936E000B4397 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD83FB4D251E936E000B4397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD83FB54251E9580000B4397 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		ADFAFB05252225BA00CF0D48 /* ClientMainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMainService.swift; sourceTree = "<group>"; };
+		ADFAFB05252225BA00CF0D48 /* ClientApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientApiService.swift; sourceTree = "<group>"; };
 		C7B897DF47C54779035DC8B4 /* Pods-Telfor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telfor.release.xcconfig"; path = "Target Support Files/Pods-Telfor/Pods-Telfor.release.xcconfig"; sourceTree = "<group>"; };
 		EBF82876AF24E018A302DF7B /* Pods_Telfor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Telfor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -200,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				AD0CA97B25216E9C00C03165 /* ClientHomeApi.swift */,
-				ADFAFB05252225BA00CF0D48 /* ClientMainService.swift */,
+				ADFAFB05252225BA00CF0D48 /* ClientApiService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -411,7 +411,7 @@
 				AD83FB55251E9580000B4397 /* InfoViewController.swift in Sources */,
 				AD0CA97525200B6F00C03165 /* StoryboardScenes.swift in Sources */,
 				AD0CA98125217A6D00C03165 /* HomeModel.swift in Sources */,
-				ADFAFB06252225BA00CF0D48 /* ClientMainService.swift in Sources */,
+				ADFAFB06252225BA00CF0D48 /* ClientApiService.swift in Sources */,
 				AD0CA97925201BBB00C03165 /* TableTextViewCell.swift in Sources */,
 				AD0CA92D251E9A8A00C03165 /* Author.swift in Sources */,
 				AD0CA94A251FA44B00C03165 /* CollectionCell.swift in Sources */,

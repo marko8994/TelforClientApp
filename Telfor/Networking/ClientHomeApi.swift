@@ -16,15 +16,19 @@ public enum TelforError: Error {
 
 public enum ClientHomeRouter {
     case getAll(Int)
+    case getAuthor(String)
 
     public func asUrl() -> URL? {
         let urlPath = baseUrl + "/api/u"
+        guard let url = URL(string: urlPath) else { return nil }
         switch self {
         case .getAll(let limit):
             guard let url = add(queryItem: "limit", with: String(limit), to: urlPath) else {
                 return nil
             }
             return url.appendingPathComponent("home").appendingPathComponent("getAll")
+        case .getAuthor(let uid):
+            return url.appendingPathComponent("author").appendingPathComponent(uid)
         }
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Room: Decodable {
+struct Room: Codable {
     let uid: String
     let name: String
     let mapPath: String

@@ -8,12 +8,12 @@
 
 import Foundation
 
-public struct Author: Decodable {
-    let uid: String
+public struct Author: Codable {
+    let id: String
     let name: String
-    let organizationName: String
+    let organization: String
     let position: String
     let imagePath: String?
     let biography: String?
-    let papers: [LightPaper]?
+    var papers: [LightPaper]?
 }

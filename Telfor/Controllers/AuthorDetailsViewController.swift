@@ -23,6 +23,8 @@ enum AuthorInfoRow: Int {
 
 class AuthorDetailsViewController: UITableViewController {
     
+    var authorId: String!
+    
     var author: Author!
     
     var sections: [AuthorSection] {
@@ -30,11 +32,28 @@ class AuthorDetailsViewController: UITableViewController {
     }
         
     var infoRows: [AuthorInfoRow] = [.name, .organization, .position]
+    
+    private lazy var clientApiService = ClientApiService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = LocalizedStrings.Common.authorDetails
+        fetchData()
         tableView.tableFooterView = UIView()
+    }
+    
+    private func fetchData() {
+        clientApiService.getAuthor(with: authorId) { (response, error) in
+            guard error == nil else {
+                return
+            }
+            guard let response = response else {
+                return
+            }
+            self.author = response.author
+            self.author.papers = response.papers
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
@@ -44,8 +63,8 @@ class AuthorDetailsViewController: UITableViewController {
         switch section {
         case .spotlight:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "spotlightCell", for: indexPath)
-                as? SpotlightCell, let imagePath = author.imagePath else { break }
-            cell.configure(with: imagePath)
+                as? SpotlightCell else { break }
+            cell.configure(with: "https://i.imgur.com/mc9EqKh.jpeg")
             return cell
         case .info:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
@@ -73,7 +92,7 @@ class AuthorDetailsViewController: UITableViewController {
         case .name:
             return BasicCellInfo(title: LocalizedStrings.Common.name, subtitle: author.name)
         case .organization:
-            return BasicCellInfo(title: LocalizedStrings.Common.organization, subtitle: author.organizationName)
+            return BasicCellInfo(title: LocalizedStrings.Common.organization, subtitle: author.organization)
         case .position:
             return BasicCellInfo(title: LocalizedStrings.Common.position, subtitle: author.position)
         }
@@ -86,6 +105,7 @@ class AuthorDetailsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard author != nil else { return 0 }
         let section = sections[section]
         switch section {
         case .spotlight:

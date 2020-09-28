@@ -18,11 +18,11 @@ class SpotlightCell: UITableViewCell {
         // Initialization code
     }
     
-    func configure(with imagePath: String) {
-        if let imageUrl = URL(string: imagePath) {
-            headerImage.kf.setImage(with: imageUrl, placeholder: UIImage(named: "spotlightPlaceholder"))
+    func configure(with imagePath: String?) {
+        if let imagePath = imagePath, let imageUrl = URL(string: imagePath) {
+            headerImage.kf.setImage(with: imageUrl, placeholder: Assets.spotlightPlaceholder.image)
         } else {
-            headerImage.image = UIImage(named: "spotlightPlaceholder")
+            headerImage.image = Assets.spotlightPlaceholder.image
         }
     }
 }

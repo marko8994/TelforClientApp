@@ -129,18 +129,55 @@ class AuthorDetailsViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let section = sections[section]
+        guard section != .spotlight else { return nil }
+        var sectionTitle: String?
+        var backgroundColor: UIColor?
+        let nibName = "SectionHeaderView"
         switch section {
         case .info:
-            return LocalizedStrings.Common.info
+            sectionTitle = LocalizedStrings.Common.info
+            backgroundColor = .yellow
         case .biography:
-            return LocalizedStrings.Common.biography
+            sectionTitle = LocalizedStrings.Common.biography
+            backgroundColor = .blue
         case .papers:
-            return LocalizedStrings.Common.papers
+            sectionTitle = LocalizedStrings.Common.papers
+            backgroundColor = .red
         default:
             return nil
         }
+        if let header = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as? SectionHeaderView {
+            header.configure(userData: section,
+                             title: sectionTitle!,
+                             hideButton: true,
+                             backgroundColor: backgroundColor,
+                             actionDelegate: nil)
+            return header
+        }
+        fatalError("Can't find nib with name: \(String(describing: nibName))")
     }
-
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if sections[section] == .spotlight {
+            return CGFloat.leastNormalMagnitude
+        } else {
+            return 44
+        }
+    }
+    
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        let section = sections[section]
+//        switch section {
+//        case .info:
+//            return LocalizedStrings.Common.info
+//        case .biography:
+//            return LocalizedStrings.Common.biography
+//        case .papers:
+//            return LocalizedStrings.Common.papers
+//        default:
+//            return nil
+//        }
+//    }
 }

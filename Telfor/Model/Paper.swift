@@ -8,17 +8,30 @@
 
 import Foundation
 
-enum PaperType: Int {
-    case students = 0
+enum PaperType: String, Codable {
+    case students
     case regular
+    case special
+    
+    var name: String {
+        switch self {
+        case .students:
+            return LocalizedStrings.Common.studentsPaper
+        case .regular:
+            return LocalizedStrings.Common.regularPaper
+        case .special:
+            return LocalizedStrings.Common.specialPaper
+        }
+    }
 }
 
 public struct Paper: Codable {
-    let uid: String
+    let id: String
     let title: String
     let summary: String
-//    let type: PaperType
-    let authors: [Author]
+    let type: PaperType
+    var authors: [LightAuthor]?
+    let room: Room
     let presentationDate: Date
     let questionsFormPath: String?
 }

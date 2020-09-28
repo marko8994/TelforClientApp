@@ -16,6 +16,11 @@ public struct AuthorResponse: Codable {
     let papers: [LightPaper]
 }
 
+public struct PaperResponse: Codable {
+    let paper: Paper
+    let authors: [LightAuthor]
+}
+
 
 public class ClientApiService {
 
@@ -76,6 +81,40 @@ public class ClientApiService {
                     let authorResponse: AuthorResponse = try JSONDecoder().decode(AuthorResponse.self, from: data)
                     DispatchQueue.main.async {
                       completion(authorResponse, nil)
+                    }
+                } catch {
+                    completion(nil, error)
+                    print("Error during JSON serialization: \(error.localizedDescription)")
+                }
+            }
+        }
+        dataTask?.resume()
+    }
+    
+    func getPaper(with id: String, completion: @escaping SingleServiceResult<PaperResponse>) {
+        dataTask?.cancel()
+        guard let url = ClientHomeRouter.getPaper(id).asUrl() else {
+            completion(nil, nil)
+            print("Invalid url passed for request")
+            return
+        }
+        dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
+            defer {
+              self?.dataTask = nil
+            }
+            if let error = error {
+              completion(nil, error)
+            } else if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    dateFormatter.locale = Locale.current
+                    dateFormatter.timeZone = TimeZone.current
+                    decoder.dateDecodingStrategy = .formatted(dateFormatter)
+                    let paperResponse: PaperResponse = try decoder.decode(PaperResponse.self, from: data)
+                    DispatchQueue.main.async {
+                      completion(paperResponse, nil)
                     }
                 } catch {
                     completion(nil, error)

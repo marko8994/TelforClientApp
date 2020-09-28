@@ -9,7 +9,7 @@
 import Foundation
 
 struct Room: Codable {
-    let uid: String
+    let id: String
     let name: String
     let mapPath: String
     let papers: [Paper]?

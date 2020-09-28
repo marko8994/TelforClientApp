@@ -228,6 +228,7 @@
                     <navigationItem key="navigationItem" id="03T-Xc-5mO"/>
                     <connections>
                         <segue destination="qJz-Lv-eSK" kind="show" identifier="authorDetails" id="OeB-eM-xCd"/>
+                        <segue destination="QyP-g3-juo" kind="show" identifier="paperDetails" id="SOB-3l-PiY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30Q-rG-xwR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -242,7 +243,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhH-GE-aCE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2382" y="-547"/>
+            <point key="canvasLocation" x="2407" y="-516"/>
+        </scene>
+        <!--PaperDetailsViewController-->
+        <scene sceneID="6gt-Jq-VsQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Paper" referencedIdentifier="PaperDetailsViewController" id="QyP-g3-juo" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="74m-Pb-Ho8"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="43c-h9-vFo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2411" y="-404"/>
         </scene>
         <!--Info-->
         <scene sceneID="rLj-vW-LMj">

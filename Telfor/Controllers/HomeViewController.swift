@@ -28,7 +28,7 @@ class HomeViewController: UITableViewController {
     
     var sections: [HomeSection] = [.spotlight, .authors, .papers, .rooms]
     
-    private lazy var homeDataProvider = HomeDataProvider()
+    private lazy var homeApiService = ClientMainService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class HomeViewController: UITableViewController {
     }
     
     private func fetchData() {
-        homeDataProvider.getAll(limit: 10) { (error, homeData) in
+        homeApiService.getAll(limit: 10) { (homeData, error) in
             guard error == nil else {
                 return
             }

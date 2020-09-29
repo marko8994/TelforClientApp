@@ -76,9 +76,7 @@ class HomeViewController: UITableViewController {
         var paperCellInfos = [BasicCellInfo]()
         for paper in model.papers {
             let userData = (section: HomeSection.papers, paperId: paper.id)
-            let cellInfo = BasicCellInfo(userData: userData,
-                                         title: paper.title,
-                                         subtitle: paper.authorNames.joined(separator: ", "))
+            let cellInfo = BasicCellInfo(with: paper, and: userData)
             paperCellInfos.append(cellInfo)
         }
         cellInfos[.papers] = paperCellInfos

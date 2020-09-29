@@ -24,8 +24,9 @@ public struct BasicCellInfo: BasicCellDataSource {
         self.subtitle = subtitle
     }
     
-    public init(with paper: LightPaper) {
+    public init(with paper: LightPaper, and userData: Any? = nil) {
         title = paper.title
-        subtitle = paper.authorNames.joined(separator: ", ")
+        subtitle = paper.authorNames
+        self.userData = userData
     }
 }

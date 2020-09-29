@@ -66,9 +66,9 @@ public class ClientApiService {
                     dateFormatter.locale = Locale.current
                     dateFormatter.timeZone = TimeZone.current
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)
-                    let infoData: InfoModel = try decoder.decode(InfoModel.self, from: data)
+                    let infoModel: InfoModel = try decoder.decode(InfoModel.self, from: data)
                     DispatchQueue.main.async {
-                      completion(infoData, nil)
+                      completion(infoModel, nil)
                     }
                 } catch {
                     completion(nil, error)
@@ -79,7 +79,7 @@ public class ClientApiService {
         dataTask?.resume()
     }
     
-    func getAuthor(with id: String, completion: @escaping SingleServiceResult<AuthorResponse>) {
+    func getAuthor(with id: String, completion: @escaping SingleServiceResult<Author>) {
         dataTask?.cancel()
         guard let url = ClientApiRouter.getAuthor(id).asUrl() else {
             completion(nil, nil)
@@ -94,9 +94,9 @@ public class ClientApiService {
               completion(nil, error)
             } else if let data = data {
                 do {
-                    let authorResponse: AuthorResponse = try JSONDecoder().decode(AuthorResponse.self, from: data)
+                    let author: Author = try JSONDecoder().decode(Author.self, from: data)
                     DispatchQueue.main.async {
-                      completion(authorResponse, nil)
+                      completion(author, nil)
                     }
                 } catch {
                     completion(nil, error)
@@ -141,7 +141,7 @@ public class ClientApiService {
         dataTask?.resume()
     }
     
-    func getRoom(with id: String, completion: @escaping SingleServiceResult<RoomResponse>) {
+    func getRoom(with id: String, completion: @escaping SingleServiceResult<Room>) {
         dataTask?.cancel()
         guard let url = ClientApiRouter.getRoom(id).asUrl() else {
             completion(nil, nil)
@@ -156,9 +156,9 @@ public class ClientApiService {
               completion(nil, error)
             } else if let data = data {
                 do {
-                    let roomResponse: RoomResponse = try JSONDecoder().decode(RoomResponse.self, from: data)
+                    let room: Room = try JSONDecoder().decode(Room.self, from: data)
                     DispatchQueue.main.async {
-                      completion(roomResponse, nil)
+                      completion(room, nil)
                     }
                 } catch {
                     completion(nil, error)

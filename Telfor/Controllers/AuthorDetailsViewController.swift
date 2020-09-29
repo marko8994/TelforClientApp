@@ -59,15 +59,14 @@ class AuthorDetailsViewController: UITableViewController {
     
     private func fetchData() {
         guard let authorId = authorId else { return }
-        clientApiService.getAuthor(with: authorId) { (response, error) in
+        clientApiService.getAuthor(with: authorId) { (author, error) in
             guard error == nil else {
                 return
             }
-            guard let response = response else {
+            guard let author = author else {
                 return
             }
-            self.author = response.author
-            self.author.papers = response.papers
+            self.author = author
             self.tableView.reloadData()
         }
     }

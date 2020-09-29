@@ -39,15 +39,14 @@ class RoomDetailsViewController: UITableViewController {
     
     private func fetchData() {
         guard let roomId = roomId else { return }
-        clientApiService.getRoom(with: roomId) { (response, error) in
+        clientApiService.getRoom(with: roomId) { (room, error) in
             guard error == nil else {
                 return
             }
-            guard let response = response else {
+            guard let room = room else {
                 return
             }
-            self.room = response.room
-            self.room.papers = response.papers
+            self.room = room
             self.tableView.reloadData()
         }
     }

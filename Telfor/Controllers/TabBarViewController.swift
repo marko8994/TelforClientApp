@@ -15,7 +15,6 @@ class TabBarViewController: UITabBarController {
         tabBar.tintColor = Theme.primaryColor
         tabBar.barTintColor = Theme.barTintColor
         tabBar.unselectedItemTintColor = Theme.unselectedItemTintColor
-//        tabBar.items[0].
     }
 
 }

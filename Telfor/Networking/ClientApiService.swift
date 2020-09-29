@@ -107,7 +107,7 @@ public class ClientApiService {
         dataTask?.resume()
     }
     
-    func getPaper(with id: String, completion: @escaping SingleServiceResult<PaperResponse>) {
+    func getPaper(with id: String, completion: @escaping SingleServiceResult<Paper>) {
         dataTask?.cancel()
         guard let url = ClientApiRouter.getPaper(id).asUrl() else {
             completion(nil, nil)
@@ -128,9 +128,9 @@ public class ClientApiService {
                     dateFormatter.locale = Locale.current
                     dateFormatter.timeZone = TimeZone.current
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)
-                    let paperResponse: PaperResponse = try decoder.decode(PaperResponse.self, from: data)
+                    let paper: Paper = try decoder.decode(Paper.self, from: data)
                     DispatchQueue.main.async {
-                      completion(paperResponse, nil)
+                      completion(paper, nil)
                     }
                 } catch {
                     completion(nil, error)

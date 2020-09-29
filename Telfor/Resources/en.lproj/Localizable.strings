@@ -27,6 +27,10 @@
 "Common.StudentsPaper" = "Students paper";
 "Common.RegularPaper" = "Regular paper";
 "Common.SpecialPaper" = "Special paper";
+"Common.StartDate" = "Start date";
+"Common.EndDate" = "End date";
+"Common.Survey" = "Survey";
+"Common.Contact" = "Contact";
 
 
 

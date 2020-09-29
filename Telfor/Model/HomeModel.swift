@@ -9,6 +9,7 @@
 import Foundation
 
 public struct HomeModel: Codable {
+    let name: String
     let imagePath: String
     let authors: [LightAuthor]
     let papers: [LightPaper]

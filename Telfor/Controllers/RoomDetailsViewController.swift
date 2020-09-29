@@ -8,19 +8,19 @@
 
 import UIKit
 
-enum RoomSection: Int {
-    case spotlight = 0
-    case info
-    case papers
-}
-
 class RoomDetailsViewController: UITableViewController {
+    
+    private enum RoomSection: Int {
+        case spotlight = 0
+        case info
+        case papers
+    }
     
     var roomId: String!
     
-    var room: Room!
+    private var room: Room!
     
-    var sections: [RoomSection] {
+    private var sections: [RoomSection] {
         var sections: [RoomSection] = [.spotlight, .info]
         if room?.papers?.count ?? 0 > 0 {
             sections.append(.papers)

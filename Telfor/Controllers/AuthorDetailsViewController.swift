@@ -40,7 +40,7 @@ class AuthorDetailsViewController: UITableViewController {
     
     var authorId: String!
     
-    var author: Author!
+    private var author: Author!
     
     private var sections: [AuthorSection] {
         return [.spotlight, .info, .biography, .papers]
@@ -93,7 +93,6 @@ class AuthorDetailsViewController: UITableViewController {
         case .position:
             return BasicCellInfo(title: author.position, subtitle: LocalizedStrings.Common.position)
         }
-        
     }
 
     // MARK: - Table view data source

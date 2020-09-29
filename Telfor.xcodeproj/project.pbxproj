@@ -48,6 +48,8 @@
 		ADFAFB0E2522B7B900CF0D48 /* ResponseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB0D2522B7B900CF0D48 /* ResponseObjects.swift */; };
 		ADFAFB102522B81C00CF0D48 /* Room.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFAFB0F2522B81C00CF0D48 /* Room.storyboard */; };
 		ADFAFB122522B8A400CF0D48 /* RoomDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB112522B8A400CF0D48 /* RoomDetailsViewController.swift */; };
+		ADFAFB142522DF3F00CF0D48 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB132522DF3F00CF0D48 /* InfoModel.swift */; };
+		ADFAFB162522ED4100CF0D48 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB152522ED4100CF0D48 /* TabBarViewController.swift */; };
 		B39A575C3CAFD9AF28FD3491 /* Pods_Telfor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF82876AF24E018A302DF7B /* Pods_Telfor.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,8 @@
 		ADFAFB0D2522B7B900CF0D48 /* ResponseObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseObjects.swift; sourceTree = "<group>"; };
 		ADFAFB0F2522B81C00CF0D48 /* Room.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Room.storyboard; sourceTree = "<group>"; };
 		ADFAFB112522B8A400CF0D48 /* RoomDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailsViewController.swift; sourceTree = "<group>"; };
+		ADFAFB132522DF3F00CF0D48 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		ADFAFB152522ED4100CF0D48 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C7B897DF47C54779035DC8B4 /* Pods-Telfor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telfor.release.xcconfig"; path = "Target Support Files/Pods-Telfor/Pods-Telfor.release.xcconfig"; sourceTree = "<group>"; };
 		EBF82876AF24E018A302DF7B /* Pods_Telfor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Telfor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -139,6 +143,7 @@
 				AD0CA92E251E9AF400C03165 /* Paper.swift */,
 				AD0CA930251E9C9A00C03165 /* Room.swift */,
 				AD0CA98025217A6D00C03165 /* HomeModel.swift */,
+				ADFAFB132522DF3F00CF0D48 /* InfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				AD0CA97625200BDA00C03165 /* AuthorDetailsViewController.swift */,
 				ADFAFB092522813C00CF0D48 /* PaperDetailsViewController.swift */,
 				ADFAFB112522B8A400CF0D48 /* RoomDetailsViewController.swift */,
+				ADFAFB152522ED4100CF0D48 /* TabBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 				AD0CA96E252008B200C03165 /* SwiftGenImageNames.swift in Sources */,
 				AD0CA956251FF02900C03165 /* SectionHeaderView.swift in Sources */,
 				ADFAFB122522B8A400CF0D48 /* RoomDetailsViewController.swift in Sources */,
+				ADFAFB162522ED4100CF0D48 /* TabBarViewController.swift in Sources */,
 				AD0CA97F2521781A00C03165 /* HomeDataProvider.swift in Sources */,
 				AD0CA97425200B6F00C03165 /* StoryboardSegues.swift in Sources */,
 				AD83FB42251E936D000B4397 /* SceneDelegate.swift in Sources */,
@@ -437,6 +444,7 @@
 				AD0CA98125217A6D00C03165 /* HomeModel.swift in Sources */,
 				ADFAFB06252225BA00CF0D48 /* ClientApiService.swift in Sources */,
 				AD0CA97925201BBB00C03165 /* TableTextViewCell.swift in Sources */,
+				ADFAFB142522DF3F00CF0D48 /* InfoModel.swift in Sources */,
 				AD0CA92D251E9A8A00C03165 /* Author.swift in Sources */,
 				AD0CA94A251FA44B00C03165 /* CollectionCell.swift in Sources */,
 			);

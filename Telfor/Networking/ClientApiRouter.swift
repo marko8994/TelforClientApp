@@ -15,6 +15,7 @@ public enum ClientApiRouter {
     case getAuthor(String)
     case getPaper(String)
     case getRoom(String)
+    case getInfo
 
     public func asUrl() -> URL? {
         let urlPath = baseUrl + "/api/u"
@@ -31,6 +32,8 @@ public enum ClientApiRouter {
             return url.appendingPathComponent("paper").appendingPathComponent(uid)
         case .getRoom(let uid):
             return url.appendingPathComponent("room").appendingPathComponent(uid)
+        case .getInfo:
+            return url.appendingPathComponent("info")
         }
     }
     

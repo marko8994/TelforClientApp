@@ -12,8 +12,8 @@ extension Date {
     
     func shortDate() -> String {
         let formater = DateFormatter()
-        formater.dateStyle = .short
-        formater.dateFormat = "HH:mm E, d MMM y"
+        formater.dateStyle = .medium
+        formater.dateFormat = "d MMM y"
         return formater.string(from: self)
     }
     

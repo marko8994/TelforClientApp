@@ -32,7 +32,6 @@ class HomeViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Telfor 2019"
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         fetchData()
         tableView.tableFooterView = UIView()
@@ -48,6 +47,7 @@ class HomeViewController: UITableViewController {
             }
             self.model = model
             self.setupCellInfos()
+            self.title = model.name
             self.tableView.reloadData()
         }
     }
@@ -119,7 +119,7 @@ extension HomeViewController {
         case .spotlight:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "spotlightCell", for: indexPath)
                 as? SpotlightCell, let _ = model else { break }
-            cell.configure(with: "https://i.imgur.com/mc9EqKh.jpeg")
+            cell.configure(with: model.imagePath)
             return cell
         case .authors:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "collectionContainerCell", for: indexPath)

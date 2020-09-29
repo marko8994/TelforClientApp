@@ -28,7 +28,7 @@ class PaperDetailsViewController: UITableViewController {
     
     var paperId: String!
     
-    var paper: Paper!
+    private var paper: Paper!
     
     private var sections: [PaperSection] {
         var sections: [PaperSection] = [.info, .summary]
@@ -194,14 +194,14 @@ class PaperDetailsViewController: UITableViewController {
         var backgroundColor: UIColor?
         let nibName = "SectionHeaderView"
         switch section {
-        case .authors:
-            sectionTitle = LocalizedStrings.Common.authors
-            backgroundColor = .yellow
         case .info:
             sectionTitle = LocalizedStrings.Common.info
-            backgroundColor = .blue
+            backgroundColor = .yellow
         case .summary:
             sectionTitle = LocalizedStrings.Common.summary
+            backgroundColor = .blue
+        case .authors:
+            sectionTitle = LocalizedStrings.Common.authors
             backgroundColor = .red
         }
         if let header = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as? SectionHeaderView {

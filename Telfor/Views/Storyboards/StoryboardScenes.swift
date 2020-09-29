@@ -36,6 +36,13 @@ internal enum StoryboardScene {
 
     internal static let paperDetailsViewController = SceneType<PaperDetailsViewController>(storyboard: Paper.self, identifier: "PaperDetailsViewController")
   }
+  internal enum Room: StoryboardType {
+    internal static let storyboardName = "Room"
+
+    internal static let initialScene = InitialSceneType<RoomDetailsViewController>(storyboard: Room.self)
+
+    internal static let roomDetailsViewController = SceneType<RoomDetailsViewController>(storyboard: Room.self, identifier: "RoomDetailsViewController")
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
 

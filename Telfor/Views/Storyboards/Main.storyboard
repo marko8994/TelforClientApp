@@ -193,9 +193,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0sB-Ax-g9J">
-                                            <rect key="frame" x="20" y="27.5" width="53" height="18"/>
+                                            <rect key="frame" x="20" y="27.5" width="54.5" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -229,6 +229,7 @@
                     <connections>
                         <segue destination="qJz-Lv-eSK" kind="show" identifier="authorDetails" id="OeB-eM-xCd"/>
                         <segue destination="QyP-g3-juo" kind="show" identifier="paperDetails" id="SOB-3l-PiY"/>
+                        <segue destination="5uh-DA-kLV" kind="show" identifier="roomDetails" id="CIs-Se-Vid"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30Q-rG-xwR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -253,7 +254,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="43c-h9-vFo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2411" y="-404"/>
+            <point key="canvasLocation" x="2411" y="-410"/>
+        </scene>
+        <!--RoomDetailsViewController-->
+        <scene sceneID="Pme-oV-N7M">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Room" referencedIdentifier="RoomDetailsViewController" id="5uh-DA-kLV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="sev-t6-M6a"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JOp-5k-Kwu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2388" y="-334"/>
         </scene>
         <!--Info-->
         <scene sceneID="rLj-vW-LMj">

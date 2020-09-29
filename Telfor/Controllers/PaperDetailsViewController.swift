@@ -196,13 +196,13 @@ class PaperDetailsViewController: UITableViewController {
         switch section {
         case .info:
             sectionTitle = LocalizedStrings.Common.info
-            backgroundColor = .yellow
+            backgroundColor = Theme.secondaryColor
         case .summary:
             sectionTitle = LocalizedStrings.Common.summary
-            backgroundColor = .blue
+            backgroundColor = Theme.tertiaryColor
         case .authors:
             sectionTitle = LocalizedStrings.Common.authors
-            backgroundColor = .red
+            backgroundColor = Theme.quetarnaryColor
         }
         if let header = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as? SectionHeaderView {
             header.configure(userData: section,

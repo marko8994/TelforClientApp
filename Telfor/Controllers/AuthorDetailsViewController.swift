@@ -169,13 +169,13 @@ class AuthorDetailsViewController: UITableViewController {
         switch section {
         case .info:
             sectionTitle = LocalizedStrings.Common.info
-            backgroundColor = .yellow
+            backgroundColor = Theme.secondaryColor
         case .biography:
             sectionTitle = LocalizedStrings.Common.biography
-            backgroundColor = .blue
+            backgroundColor = Theme.tertiaryColor
         case .papers:
             sectionTitle = LocalizedStrings.Common.papers
-            backgroundColor = .red
+            backgroundColor = Theme.quetarnaryColor
         default:
             return nil
         }

@@ -37,6 +37,14 @@ class InfoDetailsViewController: UITableViewController {
         tableView.tableFooterView = UIView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.tabBarItem.title = infoModel?.name
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.tabBarItem.title = ""
+    }
+    
     private func fetchData() {
         clientApiService.getInfo { (response, error) in
             guard error == nil else {
@@ -132,10 +140,10 @@ class InfoDetailsViewController: UITableViewController {
         switch section {
         case .description:
             sectionTitle = LocalizedStrings.Common.summary
-            backgroundColor = .yellow
+            backgroundColor = Theme.secondaryColor
         case .info:
             sectionTitle = LocalizedStrings.Common.info
-            backgroundColor = .blue
+            backgroundColor = Theme.tertiaryColor
         default:
             return nil
         }

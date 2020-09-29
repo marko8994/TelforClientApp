@@ -37,6 +37,14 @@ class HomeViewController: UITableViewController {
         tableView.tableFooterView = UIView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.tabBarItem.title = model?.name
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.tabBarItem.title = ""
+    }
+    
     private func fetchData() {
         homeApiService.getAll(limit: 10) { (homeData, error) in
             guard error == nil else {
@@ -194,13 +202,13 @@ extension HomeViewController {
         switch section {
         case .authors:
             sectionTitle = LocalizedStrings.Common.authors
-            backgroundColor = .yellow
+            backgroundColor = Theme.secondaryColor
         case .papers:
             sectionTitle = LocalizedStrings.Common.papers
-            backgroundColor = .blue
+            backgroundColor = Theme.tertiaryColor
         case .rooms:
             sectionTitle = LocalizedStrings.Common.rooms
-            backgroundColor = .red
+            backgroundColor = Theme.quetarnaryColor
         default:
             return nil
         }

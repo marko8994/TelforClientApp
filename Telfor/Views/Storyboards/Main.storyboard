@@ -28,7 +28,8 @@
         <scene sceneID="k2B-rR-qxh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vGy-eR-dQS" userLabel="Home" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" selectedImage="dot.radiowaves.left.and.right" catalog="system" id="urC-td-6L5">
+                    <tabBarItem key="tabBarItem" image="radiowaves.right" catalog="system" largeContentSizeImage="radiowaves.right" id="urC-td-6L5">
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
                         <color key="badgeColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
@@ -273,7 +274,7 @@
         <scene sceneID="rLj-vW-LMj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1g-Fx-BIQ" userLabel="Info" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="BJX-q9-Iwj"/>
+                    <tabBarItem key="tabBarItem" title="" image="radiowaves.left" catalog="system" largeContentSizeImage="radiowaves.left" id="BJX-q9-Iwj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ES0-uG-5WQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -404,6 +405,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dot.radiowaves.left.and.right" catalog="system" width="128" height="89"/>
+        <image name="radiowaves.left" catalog="system" width="90" height="128"/>
+        <image name="radiowaves.right" catalog="system" width="90" height="128"/>
     </resources>
 </document>

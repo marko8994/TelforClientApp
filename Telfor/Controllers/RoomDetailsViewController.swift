@@ -124,11 +124,11 @@ class RoomDetailsViewController: UITableViewController {
         switch section {
         case .info:
             sectionTitle = LocalizedStrings.Common.info
-            backgroundColor = .yellow
+            backgroundColor = Theme.secondaryColor
         case .papers:
             guard room?.papers?.count ?? 0 > 0 else { return nil }
             sectionTitle = LocalizedStrings.Common.papers
-            backgroundColor = .red
+            backgroundColor = Theme.tertiaryColor
         default:
             return nil
         }

@@ -50,6 +50,7 @@
 		ADFAFB122522B8A400CF0D48 /* RoomDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB112522B8A400CF0D48 /* RoomDetailsViewController.swift */; };
 		ADFAFB142522DF3F00CF0D48 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB132522DF3F00CF0D48 /* InfoModel.swift */; };
 		ADFAFB162522ED4100CF0D48 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB152522ED4100CF0D48 /* TabBarViewController.swift */; };
+		ADFAFB182522F2E500CF0D48 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAFB172522F2E500CF0D48 /* Theme.swift */; };
 		B39A575C3CAFD9AF28FD3491 /* Pods_Telfor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF82876AF24E018A302DF7B /* Pods_Telfor.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		ADFAFB112522B8A400CF0D48 /* RoomDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailsViewController.swift; sourceTree = "<group>"; };
 		ADFAFB132522DF3F00CF0D48 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		ADFAFB152522ED4100CF0D48 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		ADFAFB172522F2E500CF0D48 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C7B897DF47C54779035DC8B4 /* Pods-Telfor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Telfor.release.xcconfig"; path = "Target Support Files/Pods-Telfor/Pods-Telfor.release.xcconfig"; sourceTree = "<group>"; };
 		EBF82876AF24E018A302DF7B /* Pods_Telfor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Telfor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -198,6 +200,7 @@
 				AD0CA96D252008B100C03165 /* SwiftGenLocalizedStrings.swift */,
 				AD83FB48251E936E000B4397 /* Assets.xcassets */,
 				AD0CA962252001B200C03165 /* Localizable.strings */,
+				ADFAFB172522F2E500CF0D48 /* Theme.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				AD0CA931251E9C9B00C03165 /* Room.swift in Sources */,
 				AD0CA93D251F87EF00C03165 /* CollectionDataSource.swift in Sources */,
 				AD0CA92F251E9AF400C03165 /* Paper.swift in Sources */,
+				ADFAFB182522F2E500CF0D48 /* Theme.swift in Sources */,
 				ADFAFB0E2522B7B900CF0D48 /* ResponseObjects.swift in Sources */,
 				ADFAFB0C25229D8500CF0D48 /* Date+Formater.swift in Sources */,
 				AD0CA97C25216E9C00C03165 /* ClientApiRouter.swift in Sources */,

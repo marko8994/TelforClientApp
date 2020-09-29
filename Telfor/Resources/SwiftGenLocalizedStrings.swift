@@ -41,6 +41,8 @@ internal enum LocalizedStrings {
     internal static let regularPaper = LocalizedStrings.tr("Localizable", "Common.RegularPaper")
     /// Room
     internal static let room = LocalizedStrings.tr("Localizable", "Common.Room")
+    /// Room details
+    internal static let roomDetails = LocalizedStrings.tr("Localizable", "Common.RoomDetails")
     /// Rooms
     internal static let rooms = LocalizedStrings.tr("Localizable", "Common.Rooms")
     /// Special paper

@@ -62,7 +62,7 @@ class HomeViewController: UITableViewController {
         cellInfos[.authors] = authorCellInfos
         var paperCellInfos = [BasicCellInfo]()
         for paper in model.papers {
-            let userData = (section: HomeSection.authors, paperId: paper.id)
+            let userData = (section: HomeSection.papers, paperId: paper.id)
             let cellInfo = BasicCellInfo(userData: userData,
                                          title: paper.title,
                                          subtitle: paper.authorNames.joined(separator: ", "))
@@ -71,7 +71,8 @@ class HomeViewController: UITableViewController {
         cellInfos[.papers] = paperCellInfos
         var roomCellInfos = [BasicCellInfo]()
         for room in model.rooms {
-            let cellInfo = BasicCellInfo(title: room.name)
+            let userData = (section: HomeSection.rooms, paperId: room.id)
+            let cellInfo = BasicCellInfo(userData: userData, title: room.name)
             roomCellInfos.append(cellInfo)
         }
         cellInfos[.rooms] = roomCellInfos
@@ -99,6 +100,10 @@ class HomeViewController: UITableViewController {
             guard let viewController = segue.destination as? PaperDetailsViewController,
                 let paperId = sender as? String else { return }
             viewController.paperId = paperId
+        case .roomDetails:
+            guard let viewController = segue.destination as? RoomDetailsViewController,
+                let roomId = sender as? String else { return }
+            viewController.roomId = roomId
         default:
             return
         }
@@ -155,6 +160,10 @@ extension HomeViewController {
             guard let cellInfo = cellInfos[section]?[indexPath.row],
                 let params = cellInfo.userData as? (HomeSection, String) else { return }
             perform(segue: Segues.paperDetails, sender: params.1)
+        case .rooms:
+            guard let cellInfo = cellInfos[section]?[indexPath.row],
+                let params = cellInfo.userData as? (HomeSection, String) else { return }
+            perform(segue: Segues.roomDetails, sender: params.1)
         default:
             return
         }

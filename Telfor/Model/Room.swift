@@ -12,5 +12,5 @@ struct Room: Codable {
     let id: String
     let name: String
     let mapPath: String
-    let papers: [Paper]?
+    var papers: [LightPaper]?
 }

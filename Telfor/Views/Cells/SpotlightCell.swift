@@ -20,7 +20,14 @@ class SpotlightCell: UITableViewCell {
     
     func configure(with imagePath: String?) {
         if let imagePath = imagePath, let imageUrl = URL(string: imagePath) {
-            headerImage.kf.setImage(with: imageUrl, placeholder: Assets.spotlightPlaceholder.image)
+            headerImage.kf.setImage(with: imageUrl, placeholder: Assets.spotlightPlaceholder.image) {[weak self] (result) in
+                switch result {
+                case .failure(let error):
+                    print("\(error)")
+                case .success:
+                    return
+                }
+            }
         } else {
             headerImage.image = Assets.spotlightPlaceholder.image
         }

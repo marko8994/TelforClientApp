@@ -1,53 +1,33 @@
 //
-//  AuthorDetailsViewController.swift
+//  RoomDetailsViewController.swift
 //  Telfor
 //
-//  Created by Marko Mladenovic on 27/09/2020.
+//  Created by Marko Mladenovic on 29/09/2020.
 //  Copyright © 2020 Marko Mladenovic. All rights reserved.
 //
 
 import UIKit
 
-enum AuthorSection: Int {
+enum RoomSection: Int {
     case spotlight = 0
     case info
-    case biography
     case papers
 }
 
-enum AuthorInfoRow: Int {
-    case name = 0
-    case organization
-    case position
-}
-
-class AuthorDetailsViewController: UITableViewController {
+class RoomDetailsViewController: UITableViewController {
     
-    private typealias Segues = StoryboardSegue.Author
+    var roomId: String!
     
-    private enum AuthorSection: Int {
-        case spotlight = 0
-        case info
-        case biography
-        case papers
+    var room: Room!
+    
+    var sections: [RoomSection] {
+        var sections: [RoomSection] = [.spotlight, .info]
+        if room?.papers?.count ?? 0 > 0 {
+            sections.append(.papers)
+        }
+        return sections
     }
 
-    private enum AuthorInfoRow: Int {
-        case name = 0
-        case organization
-        case position
-    }
-    
-    var authorId: String!
-    
-    var author: Author!
-    
-    private var sections: [AuthorSection] {
-        return [.spotlight, .info, .biography, .papers]
-    }
-        
-    private var infoRows: [AuthorInfoRow] = [.name, .organization, .position]
-    
     private lazy var clientApiService = ClientApiService()
 
     override func viewDidLoad() {
@@ -58,68 +38,46 @@ class AuthorDetailsViewController: UITableViewController {
     }
     
     private func fetchData() {
-        guard let authorId = authorId else { return }
-        clientApiService.getAuthor(with: authorId) { (response, error) in
+        guard let roomId = roomId else { return }
+        clientApiService.getRoom(with: roomId) { (response, error) in
             guard error == nil else {
                 return
             }
             guard let response = response else {
                 return
             }
-            self.author = response.author
-            self.author.papers = response.papers
+            self.room = response.room
+            self.room.papers = response.papers
             self.tableView.reloadData()
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch Segues(segue) {
-        case .paperDetails:
+        if StoryboardSegue.Room(segue) == .paperDetails {
             guard let viewController = segue.destination as? PaperDetailsViewController,
                 let paperId = sender as? String else { return }
             viewController.paperId = paperId
-        default:
-            return
         }
-    }
-    
-    private func infoSectionCellInfo(for indexPath: IndexPath) -> BasicCellInfo {
-        let infoRow = infoRows[indexPath.row]
-        switch infoRow {
-        case .name:
-            return BasicCellInfo(title: author.name, subtitle: LocalizedStrings.Common.name)
-        case .organization:
-            return BasicCellInfo(title: author.organization, subtitle: LocalizedStrings.Common.organization)
-        case .position:
-            return BasicCellInfo(title: author.position, subtitle: LocalizedStrings.Common.position)
-        }
-        
     }
 
     // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = sections[indexPath.section]
         switch section {
         case .spotlight:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "spotlightCell", for: indexPath)
                 as? SpotlightCell else { break }
-            cell.configure(with: author?.imagePath)
+            cell.configure(with: room?.mapPath)
             return cell
         case .info:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
                 as? BasicTableViewCell else { break }
-            let cellInfo = infoSectionCellInfo(for: indexPath)
+            let cellInfo = BasicCellInfo(title: room.name, subtitle: LocalizedStrings.Common.name)
             cell.configure(with: cellInfo)
-            return cell
-        case .biography:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "biographyCell", for: indexPath)
-                as? TableTextViewCell else { break }
-            cell.content = author.biography
             return cell
         case .papers:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "paperCell", for: indexPath)
-                as? BasicTableViewCell, let papers = author?.papers else { break }
+                as? BasicTableViewCell, let papers = room?.papers else { break }
             cell.configure(with: BasicCellInfo(with: papers[indexPath.row]))
             return cell
         }
@@ -132,23 +90,19 @@ class AuthorDetailsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard author != nil else { return 0 }
+        guard room != nil else { return 0 }
         let section = sections[section]
         switch section {
-        case .spotlight:
-            return 1
-        case .info:
-            return infoRows.count
-        case .biography:
+        case .spotlight, .info:
             return 1
         case .papers:
-            return author?.papers?.count ?? 0
+            return room?.papers?.count ?? 0
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard sections[indexPath.section] == .papers, let paperId = author?.papers?[indexPath.row].id else { return }
-        perform(segue: Segues.paperDetails, sender: paperId )
+        guard sections[indexPath.section] == .papers, let paperId = room?.papers?[indexPath.row].id else { return }
+        perform(segue: StoryboardSegue.Room.paperDetails, sender: paperId)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -171,10 +125,8 @@ class AuthorDetailsViewController: UITableViewController {
         case .info:
             sectionTitle = LocalizedStrings.Common.info
             backgroundColor = .yellow
-        case .biography:
-            sectionTitle = LocalizedStrings.Common.biography
-            backgroundColor = .blue
         case .papers:
+            guard room?.papers?.count ?? 0 > 0 else { return nil }
             sectionTitle = LocalizedStrings.Common.papers
             backgroundColor = .red
         default:

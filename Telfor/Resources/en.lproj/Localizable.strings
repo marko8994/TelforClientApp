@@ -18,6 +18,7 @@
 "Common.Info" = "Info";
 "Common.AuthorDetails" = "Author details";
 "Common.PaperDetails" = "Paper details";
+"Common.RoomDetails" = "Room details";
 "Common.Title" = "Title";
 "Common.PaperType" = "Paper type";
 "Common.QuestionsForm" = "QuestionForm";

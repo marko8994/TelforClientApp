@@ -11,5 +11,5 @@ import Foundation
 public struct LightPaper: Codable {
     let id: String
     let title: String
-    let authorNames: [String]
+    let authorNames: String
 }

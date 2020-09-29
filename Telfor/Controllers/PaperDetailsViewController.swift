@@ -28,7 +28,7 @@ class PaperDetailsViewController: UITableViewController {
     
     var paperId: String!
     
-    var paper: Paper!
+    private var paper: Paper!
     
     private var sections: [PaperSection] {
         var sections: [PaperSection] = [.info, .summary]
@@ -57,15 +57,14 @@ class PaperDetailsViewController: UITableViewController {
     
     private func fetchData() {
         guard let paperId = paperId else { return }
-        clientApiService.getPaper(with: paperId) { (response, error) in
+        clientApiService.getPaper(with: paperId) { (paper, error) in
             guard error == nil else {
                 return
             }
-            guard let response = response else {
+            guard let paper = paper else {
                 return
             }
-            self.paper = response.paper
-            self.paper.authors = response.authors
+            self.paper = paper
             self.tableView.reloadData()
         }
     }
@@ -194,15 +193,15 @@ class PaperDetailsViewController: UITableViewController {
         var backgroundColor: UIColor?
         let nibName = "SectionHeaderView"
         switch section {
-        case .authors:
-            sectionTitle = LocalizedStrings.Common.authors
-            backgroundColor = .yellow
         case .info:
             sectionTitle = LocalizedStrings.Common.info
-            backgroundColor = .blue
+            backgroundColor = Theme.secondaryColor
         case .summary:
             sectionTitle = LocalizedStrings.Common.summary
-            backgroundColor = .red
+            backgroundColor = Theme.tertiaryColor
+        case .authors:
+            sectionTitle = LocalizedStrings.Common.authors
+            backgroundColor = Theme.quetarnaryColor
         }
         if let header = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as? SectionHeaderView {
             header.configure(userData: section,

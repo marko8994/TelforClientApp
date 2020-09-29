@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="X5e-t0-7m8">
             <objects>
-                <tabBarController id="lqZ-F0-iMT" sceneMemberID="viewController">
+                <tabBarController id="lqZ-F0-iMT" customClass="TabBarViewController" customModule="Telfor" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="A5k-ry-b7B">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -28,7 +28,11 @@
         <scene sceneID="k2B-rR-qxh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vGy-eR-dQS" userLabel="Home" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="urC-td-6L5"/>
+                    <tabBarItem key="tabBarItem" image="radiowaves.right" catalog="system" largeContentSizeImage="radiowaves.right" id="urC-td-6L5">
+                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
+                        <color key="badgeColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fmd-sC-ins">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -270,7 +274,7 @@
         <scene sceneID="rLj-vW-LMj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1g-Fx-BIQ" userLabel="Info" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="BJX-q9-Iwj"/>
+                    <tabBarItem key="tabBarItem" title="" image="radiowaves.left" catalog="system" largeContentSizeImage="radiowaves.left" id="BJX-q9-Iwj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ES0-uG-5WQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -285,21 +289,106 @@
             </objects>
             <point key="canvasLocation" x="649.27536231884062" y="317.41071428571428"/>
         </scene>
-        <!--Info View Controller-->
+        <!--Info Details View Controller-->
         <scene sceneID="Pgb-jy-Csh">
             <objects>
-                <tableViewController id="CaJ-wQ-qBm" customClass="InfoViewController" customModule="Telfor" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="CaJ-wQ-qBm" customClass="InfoDetailsViewController" customModule="Telfor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cti-Yf-owH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellTwo" id="tUF-lH-pZZ">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="spotlightCell" rowHeight="250" id="U7e-sO-HCM" userLabel="SpotlightCell" customClass="SpotlightCell" customModule="Telfor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tUF-lH-pZZ" id="gNU-0O-nSi">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U7e-sO-HCM" id="kJ9-LL-4HO">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NcX-cd-5ae">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NcX-cd-5ae" secondAttribute="trailing" id="OBd-sf-wVg"/>
+                                    <constraint firstAttribute="bottom" secondItem="NcX-cd-5ae" secondAttribute="bottom" id="XdX-gW-QV4"/>
+                                    <constraint firstItem="NcX-cd-5ae" firstAttribute="top" secondItem="U7e-sO-HCM" secondAttribute="top" id="YeU-5y-kcy"/>
+                                    <constraint firstItem="NcX-cd-5ae" firstAttribute="leading" secondItem="U7e-sO-HCM" secondAttribute="leading" id="eq4-QV-3vC"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="headerImage" destination="NcX-cd-5ae" id="aAx-10-gdJ"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="summaryCell" rowHeight="125" id="IXJ-7v-SHB" customClass="TableTextViewCell" customModule="Telfor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="278" width="414" height="125"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IXJ-7v-SHB" id="mNi-4e-CVD">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="fyM-4g-mlp">
+                                            <rect key="frame" x="10" y="5" width="394" height="120"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" link="YES"/>
+                                            </accessibility>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fyM-4g-mlp" firstAttribute="leading" secondItem="mNi-4e-CVD" secondAttribute="leading" constant="10" id="Flr-Ik-CNj"/>
+                                        <constraint firstAttribute="trailing" secondItem="fyM-4g-mlp" secondAttribute="trailing" constant="10" id="K5X-TV-EXV"/>
+                                        <constraint firstAttribute="bottom" secondItem="fyM-4g-mlp" secondAttribute="bottom" id="fkv-Nw-c0I"/>
+                                        <constraint firstItem="fyM-4g-mlp" firstAttribute="top" secondItem="mNi-4e-CVD" secondAttribute="top" constant="5" id="xwJ-wG-NfX"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textView" destination="fyM-4g-mlp" id="7da-55-z7K"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCell" textLabel="Olh-EM-02f" detailTextLabel="i9B-O6-7dH" style="IBUITableViewCellStyleSubtitle" id="C4E-xx-JkR" customClass="BasicTableViewCell" customModule="Telfor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="403" width="414" height="61.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C4E-xx-JkR" id="RaR-3J-4Ls">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="61.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Olh-EM-02f">
+                                            <rect key="frame" x="20" y="8" width="37.5" height="21.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i9B-O6-7dH">
+                                            <rect key="frame" x="20" y="32.5" width="40.5" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="disclosureCell" textLabel="Xrv-bq-JfU" rowHeight="50" style="IBUITableViewCellStyleDefault" id="FgZ-Ab-sVe" userLabel="DisclosureCell" customClass="BasicTableViewCell" customModule="Telfor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="464.5" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FgZ-Ab-sVe" id="YU3-IS-VgZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xrv-bq-JfU">
+                                            <rect key="frame" x="20" y="0.0" width="355" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -315,4 +404,8 @@
             <point key="canvasLocation" x="1693" y="317"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="radiowaves.left" catalog="system" width="90" height="128"/>
+        <image name="radiowaves.right" catalog="system" width="90" height="128"/>
+    </resources>
 </document>

@@ -40,7 +40,7 @@ class AuthorDetailsViewController: UITableViewController {
     
     var authorId: String!
     
-    var author: Author!
+    private var author: Author!
     
     private var sections: [AuthorSection] {
         return [.spotlight, .info, .biography, .papers]
@@ -59,15 +59,14 @@ class AuthorDetailsViewController: UITableViewController {
     
     private func fetchData() {
         guard let authorId = authorId else { return }
-        clientApiService.getAuthor(with: authorId) { (response, error) in
+        clientApiService.getAuthor(with: authorId) { (author, error) in
             guard error == nil else {
                 return
             }
-            guard let response = response else {
+            guard let author = author else {
                 return
             }
-            self.author = response.author
-            self.author.papers = response.papers
+            self.author = author
             self.tableView.reloadData()
         }
     }
@@ -93,7 +92,6 @@ class AuthorDetailsViewController: UITableViewController {
         case .position:
             return BasicCellInfo(title: author.position, subtitle: LocalizedStrings.Common.position)
         }
-        
     }
 
     // MARK: - Table view data source
@@ -170,13 +168,13 @@ class AuthorDetailsViewController: UITableViewController {
         switch section {
         case .info:
             sectionTitle = LocalizedStrings.Common.info
-            backgroundColor = .yellow
+            backgroundColor = Theme.secondaryColor
         case .biography:
             sectionTitle = LocalizedStrings.Common.biography
-            backgroundColor = .blue
+            backgroundColor = Theme.tertiaryColor
         case .papers:
             sectionTitle = LocalizedStrings.Common.papers
-            backgroundColor = .red
+            backgroundColor = Theme.quetarnaryColor
         default:
             return nil
         }

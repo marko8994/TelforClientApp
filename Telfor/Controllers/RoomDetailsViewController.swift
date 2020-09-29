@@ -8,19 +8,19 @@
 
 import UIKit
 
-enum RoomSection: Int {
-    case spotlight = 0
-    case info
-    case papers
-}
-
 class RoomDetailsViewController: UITableViewController {
+    
+    private enum RoomSection: Int {
+        case spotlight = 0
+        case info
+        case papers
+    }
     
     var roomId: String!
     
-    var room: Room!
+    private var room: Room!
     
-    var sections: [RoomSection] {
+    private var sections: [RoomSection] {
         var sections: [RoomSection] = [.spotlight, .info]
         if room?.papers?.count ?? 0 > 0 {
             sections.append(.papers)
@@ -39,15 +39,14 @@ class RoomDetailsViewController: UITableViewController {
     
     private func fetchData() {
         guard let roomId = roomId else { return }
-        clientApiService.getRoom(with: roomId) { (response, error) in
+        clientApiService.getRoom(with: roomId) { (room, error) in
             guard error == nil else {
                 return
             }
-            guard let response = response else {
+            guard let room = room else {
                 return
             }
-            self.room = response.room
-            self.room.papers = response.papers
+            self.room = room
             self.tableView.reloadData()
         }
     }
@@ -124,11 +123,11 @@ class RoomDetailsViewController: UITableViewController {
         switch section {
         case .info:
             sectionTitle = LocalizedStrings.Common.info
-            backgroundColor = .yellow
+            backgroundColor = Theme.secondaryColor
         case .papers:
             guard room?.papers?.count ?? 0 > 0 else { return nil }
             sectionTitle = LocalizedStrings.Common.papers
-            backgroundColor = .red
+            backgroundColor = Theme.tertiaryColor
         default:
             return nil
         }

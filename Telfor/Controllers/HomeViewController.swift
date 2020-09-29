@@ -8,34 +8,46 @@
 
 import UIKit
 
-enum HomeSection: Int {
-    case spotlight = 0
-    case authors
-    case papers
-    case rooms
-}
-
 typealias CellActionsDelegate =  CollectionContainerActionDelegate & SectionHeaderActionDelegate
 
 class HomeViewController: UITableViewController {
     
     private typealias Segues = StoryboardSegue.Main
     
+    private enum HomeSection: Int {
+        case spotlight = 0
+        case authors
+        case papers
+        case rooms
+    }
+    
     private var model: HomeModel!
     private var cellInfos = [HomeSection: [BasicCellInfo]]()
     
     weak var cellActionsDelegate: CellActionsDelegate?
     
-    var sections: [HomeSection] = [.spotlight, .authors, .papers, .rooms]
+    private var sections: [HomeSection] = [.spotlight, .authors, .papers, .rooms]
     
     private lazy var homeApiService = ClientApiService()
     
+    private var imagePaths: [String]? {
+        guard let model = model else { return nil }
+        return (model.imagePaths.components(separatedBy: ", ")).compactMap {String($0)}
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Telfor 2019"
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         fetchData()
         tableView.tableFooterView = UIView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.tabBarItem.title = model?.name
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.tabBarItem.title = ""
     }
     
     private func fetchData() {
@@ -48,6 +60,7 @@ class HomeViewController: UITableViewController {
             }
             self.model = model
             self.setupCellInfos()
+            self.title = model.name
             self.tableView.reloadData()
         }
     }
@@ -63,9 +76,7 @@ class HomeViewController: UITableViewController {
         var paperCellInfos = [BasicCellInfo]()
         for paper in model.papers {
             let userData = (section: HomeSection.papers, paperId: paper.id)
-            let cellInfo = BasicCellInfo(userData: userData,
-                                         title: paper.title,
-                                         subtitle: paper.authorNames.joined(separator: ", "))
+            let cellInfo = BasicCellInfo(with: paper, and: userData)
             paperCellInfos.append(cellInfo)
         }
         cellInfos[.papers] = paperCellInfos
@@ -119,7 +130,7 @@ extension HomeViewController {
         case .spotlight:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "spotlightCell", for: indexPath)
                 as? SpotlightCell, let _ = model else { break }
-            cell.configure(with: "https://i.imgur.com/mc9EqKh.jpeg")
+            cell.configure(with: imagePaths?.first)
             return cell
         case .authors:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "collectionContainerCell", for: indexPath)
@@ -194,13 +205,13 @@ extension HomeViewController {
         switch section {
         case .authors:
             sectionTitle = LocalizedStrings.Common.authors
-            backgroundColor = .yellow
+            backgroundColor = Theme.secondaryColor
         case .papers:
             sectionTitle = LocalizedStrings.Common.papers
-            backgroundColor = .blue
+            backgroundColor = Theme.tertiaryColor
         case .rooms:
             sectionTitle = LocalizedStrings.Common.rooms
-            backgroundColor = .red
+            backgroundColor = Theme.quetarnaryColor
         default:
             return nil
         }

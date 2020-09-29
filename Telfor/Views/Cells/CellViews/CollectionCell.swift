@@ -41,7 +41,7 @@ class CollectionCell: UICollectionViewCell, BasicCell {
     }
 
     private func setLayout() {
-        subviewsContainer?.backgroundColor = UIColor.systemGray6
+        subviewsContainer?.backgroundColor = Theme.cellBackgroundColor
         let cornerRadius: CGFloat = 10.0
         subviewsContainer.rounded(with: cornerRadius)
         imageView.toCircle()

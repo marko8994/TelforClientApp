@@ -30,8 +30,8 @@ public struct Paper: Codable {
     let title: String
     let summary: String
     let type: PaperType
-    var authors: [LightAuthor]?
-    let room: Room
     let presentationDate: Date
     let questionsFormPath: String?
+    let room: LightRoom
+    var authors: [LightAuthor]?
 }

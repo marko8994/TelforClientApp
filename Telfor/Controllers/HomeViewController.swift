@@ -8,27 +8,32 @@
 
 import UIKit
 
-enum HomeSection: Int {
-    case spotlight = 0
-    case authors
-    case papers
-    case rooms
-}
-
 typealias CellActionsDelegate =  CollectionContainerActionDelegate & SectionHeaderActionDelegate
 
 class HomeViewController: UITableViewController {
     
     private typealias Segues = StoryboardSegue.Main
     
+    private enum HomeSection: Int {
+        case spotlight = 0
+        case authors
+        case papers
+        case rooms
+    }
+    
     private var model: HomeModel!
     private var cellInfos = [HomeSection: [BasicCellInfo]]()
     
     weak var cellActionsDelegate: CellActionsDelegate?
     
-    var sections: [HomeSection] = [.spotlight, .authors, .papers, .rooms]
+    private var sections: [HomeSection] = [.spotlight, .authors, .papers, .rooms]
     
     private lazy var homeApiService = ClientApiService()
+    
+    private var imagePaths: [String]? {
+        guard let model = model else { return nil }
+        return (model.imagePaths.components(separatedBy: ", ")).compactMap {String($0)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,7 +132,7 @@ extension HomeViewController {
         case .spotlight:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "spotlightCell", for: indexPath)
                 as? SpotlightCell, let _ = model else { break }
-            cell.configure(with: model.imagePath)
+            cell.configure(with: imagePaths?.first)
             return cell
         case .authors:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "collectionContainerCell", for: indexPath)

@@ -28,6 +28,11 @@ class InfoDetailsViewController: UITableViewController {
     private var infoRows: [InfoRow] = [.startDate, .endDate, .surveyForm, .contact]
     
     private var infoModel: InfoModel!
+    
+    private var imagePaths: [String]? {
+        guard let model = infoModel else { return nil }
+        return (model.imagePaths.components(separatedBy: ", ")).compactMap {String($0)}
+    }
 
     private lazy var clientApiService = ClientApiService()
 
@@ -63,10 +68,10 @@ class InfoDetailsViewController: UITableViewController {
         let infoRow = infoRows[indexPath.row]
         switch infoRow {
         case .startDate:
-            return BasicCellInfo(title: infoModel.startDate.shortDate(),
+            return BasicCellInfo(title: infoModel.startDate.dateAndTime(),
                                  subtitle: LocalizedStrings.Common.startDate)
         case .endDate:
-            return BasicCellInfo(title: infoModel.endDate.shortDate(),
+            return BasicCellInfo(title: infoModel.endDate.dateAndTime(),
                                  subtitle: LocalizedStrings.Common.endDate)
         case .surveyForm:
             return BasicCellInfo(title: LocalizedStrings.Common.survey)
@@ -82,7 +87,7 @@ class InfoDetailsViewController: UITableViewController {
         case .spotlight:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "spotlightCell", for: indexPath)
                 as? SpotlightCell else { break }
-            cell.configure(with: infoModel.imagePaths)
+            cell.configure(with: imagePaths?.first)
             return cell
         case .description:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell", for: indexPath)

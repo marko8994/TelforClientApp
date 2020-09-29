@@ -1,5 +1,5 @@
 //
-//  ClientHomeApi.swift
+//  ClientApiRouter.swift
 //  Telfor
 //
 //  Created by Marko Mladenovic on 28/09/2020.
@@ -25,7 +25,7 @@ public enum ClientApiRouter {
             guard let url = add(queryItem: "limit", with: String(limit), to: urlPath) else {
                 return nil
             }
-            return url.appendingPathComponent("home").appendingPathComponent("getAll")
+            return url.appendingPathComponent("home")
         case .getAuthor(let uid):
             return url.appendingPathComponent("author").appendingPathComponent(uid)
         case .getPaper(let uid):

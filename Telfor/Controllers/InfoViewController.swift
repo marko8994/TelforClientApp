@@ -29,12 +29,12 @@ class InfoDetailsViewController: UITableViewController {
     
     private var infoModel: InfoModel!
     
+    private lazy var clientApiService = ClientApiService.shared
+    
     private var imagePaths: [String]? {
         guard let model = infoModel else { return nil }
         return (model.imagePaths.components(separatedBy: ", ")).compactMap {String($0)}
     }
-
-    private lazy var clientApiService = ClientApiService()
 
     override func viewDidLoad() {
         super.viewDidLoad()

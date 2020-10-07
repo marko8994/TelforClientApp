@@ -21,6 +21,8 @@ class HomeViewController: UITableViewController {
         case rooms
     }
     
+    var personInfo = (name: "", age: 5)
+    
     private var model: HomeModel!
     private var cellInfos = [HomeSection: [BasicCellInfo]]()
     
@@ -28,7 +30,7 @@ class HomeViewController: UITableViewController {
     
     private var sections: [HomeSection] = [.spotlight, .authors, .papers, .rooms]
     
-    private lazy var homeApiService = ClientApiService()
+    private lazy var clientApiService = ClientApiService.shared
     
     private var imagePaths: [String]? {
         guard let model = model else { return nil }
@@ -47,11 +49,13 @@ class HomeViewController: UITableViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.tabBarItem.title = ""
+        if self.navigationController?.tabBarController?.selectedIndex == 1 {
+            self.navigationController?.tabBarItem.title = ""
+        }
     }
     
     private func fetchData() {
-        homeApiService.getAll(limit: 10) { (homeData, error) in
+        clientApiService.getAll(limit: 10) { (homeData, error) in
             guard error == nil else {
                 return
             }

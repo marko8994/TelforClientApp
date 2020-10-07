@@ -27,7 +27,8 @@ public enum ClientApiRouter {
             }
             return url.appendingPathComponent("home")
         case .getAuthor(let uid):
-            return url.appendingPathComponent("author").appendingPathComponent(uid)
+            return url.appendingPathComponent("author")
+                .appendingPathComponent(uid)
         case .getPaper(let uid):
             return url.appendingPathComponent("paper").appendingPathComponent(uid)
         case .getRoom(let uid):

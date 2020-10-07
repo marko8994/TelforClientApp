@@ -34,7 +34,6 @@
 		AD0CA97725200BDA00C03165 /* AuthorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA97625200BDA00C03165 /* AuthorDetailsViewController.swift */; };
 		AD0CA97925201BBB00C03165 /* TableTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA97825201BBB00C03165 /* TableTextViewCell.swift */; };
 		AD0CA97C25216E9C00C03165 /* ClientApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA97B25216E9C00C03165 /* ClientApiRouter.swift */; };
-		AD0CA97F2521781A00C03165 /* HomeDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA97E2521781A00C03165 /* HomeDataProvider.swift */; };
 		AD0CA98125217A6D00C03165 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0CA98025217A6D00C03165 /* HomeModel.swift */; };
 		AD83FB40251E936D000B4397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB3F251E936D000B4397 /* AppDelegate.swift */; };
 		AD83FB42251E936D000B4397 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83FB41251E936D000B4397 /* SceneDelegate.swift */; };
@@ -83,7 +82,6 @@
 		AD0CA97625200BDA00C03165 /* AuthorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorDetailsViewController.swift; sourceTree = "<group>"; };
 		AD0CA97825201BBB00C03165 /* TableTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTextViewCell.swift; sourceTree = "<group>"; };
 		AD0CA97B25216E9C00C03165 /* ClientApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientApiRouter.swift; sourceTree = "<group>"; };
-		AD0CA97E2521781A00C03165 /* HomeDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataProvider.swift; sourceTree = "<group>"; };
 		AD0CA98025217A6D00C03165 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		AD83FB3C251E936D000B4397 /* Telfor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telfor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD83FB3F251E936D000B4397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -220,14 +218,6 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		AD0CA97D2521780900C03165 /* DataProviders */ = {
-			isa = PBXGroup;
-			children = (
-				AD0CA97E2521781A00C03165 /* HomeDataProvider.swift */,
-			);
-			path = DataProviders;
-			sourceTree = "<group>";
-		};
 		AD83FB33251E936D000B4397 = {
 			isa = PBXGroup;
 			children = (
@@ -249,11 +239,10 @@
 		AD83FB3E251E936D000B4397 /* Telfor */ = {
 			isa = PBXGroup;
 			children = (
-				AD0CA97D2521780900C03165 /* DataProviders */,
-				AD0CA97A25216E5200C03165 /* Networking */,
 				AD83FB3F251E936D000B4397 /* AppDelegate.swift */,
 				AD83FB41251E936D000B4397 /* SceneDelegate.swift */,
 				AD83FB4D251E936E000B4397 /* Info.plist */,
+				AD0CA97A25216E5200C03165 /* Networking */,
 				AD0CA92A251E99E000C03165 /* Views */,
 				AD83FB53251E9504000B4397 /* Controllers */,
 				AD0CA92B251E9A7600C03165 /* Model */,
@@ -447,7 +436,6 @@
 				AD0CA956251FF02900C03165 /* SectionHeaderView.swift in Sources */,
 				ADFAFB122522B8A400CF0D48 /* RoomDetailsViewController.swift in Sources */,
 				ADFAFB162522ED4100CF0D48 /* TabBarViewController.swift in Sources */,
-				AD0CA97F2521781A00C03165 /* HomeDataProvider.swift in Sources */,
 				AD0CA97425200B6F00C03165 /* StoryboardSegues.swift in Sources */,
 				AD83FB42251E936D000B4397 /* SceneDelegate.swift in Sources */,
 				AD0CA941251F89FB00C03165 /* BasicTableViewCell.swift in Sources */,
@@ -645,7 +633,7 @@
 				AD83FB4F251E936E000B4397 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		AD83FB50251E936E000B4397 /* Build configuration list for PBXNativeTarget "Telfor" */ = {
 			isa = XCConfigurationList;
@@ -654,7 +642,7 @@
 				AD83FB52251E936E000B4397 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

@@ -30,6 +30,8 @@ class PaperDetailsViewController: UITableViewController {
     
     private var paper: Paper!
     
+    private lazy var clientApiService = ClientApiService.shared
+    
     private var sections: [PaperSection] {
         var sections: [PaperSection] = [.info, .summary]
         if paper?.authors != nil {
@@ -45,8 +47,6 @@ class PaperDetailsViewController: UITableViewController {
         }
         return rows
     }
-    
-    private lazy var clientApiService = ClientApiService()
 
     override func viewDidLoad() {
         super.viewDidLoad()

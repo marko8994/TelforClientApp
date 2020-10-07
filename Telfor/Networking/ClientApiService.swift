@@ -12,6 +12,8 @@ public typealias SingleServiceResult<T> = (T?, Error?) -> Void
 public typealias ListServiceResult<T> = ([T]?, Error?) -> Void
 
 public class ClientApiService {
+    
+    public static let shared = ClientApiService()
 
     let defaultSession = URLSession(configuration: .default)
 
@@ -169,3 +171,7 @@ public class ClientApiService {
         dataTask?.resume()
     }
 }
+
+
+
+

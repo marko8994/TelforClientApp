@@ -13,26 +13,26 @@ class RoomDetailsViewController: UITableViewController {
     private enum RoomSection: Int {
         case spotlight = 0
         case info
-        case papers
+        case sessions
     }
     
     var roomId: String!
     
     private var room: Room!
     
+    private lazy var clientApiService = ClientApiService()
+    
     private var sections: [RoomSection] {
         var sections: [RoomSection] = [.spotlight, .info]
-        if room?.papers?.count ?? 0 > 0 {
-            sections.append(.papers)
+        if room?.sessions?.count ?? 0 > 0 {
+            sections.append(.sessions)
         }
         return sections
     }
 
-    private lazy var clientApiService = ClientApiService()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = LocalizedStrings.Common.authorDetails
+        title = LocalizedStrings.Common.roomDetails
         fetchData()
         tableView.tableFooterView = UIView()
     }
@@ -52,10 +52,10 @@ class RoomDetailsViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if StoryboardSegue.Room(segue) == .paperDetails {
-            guard let viewController = segue.destination as? PaperDetailsViewController,
-                let paperId = sender as? String else { return }
-            viewController.paperId = paperId
+        if StoryboardSegue.Room(segue) == .sessionDetails {
+            guard let viewController = segue.destination as? SessionDetailsViewController,
+                let sessionId = sender as? String else { return }
+            viewController.sessionId = sessionId
         }
     }
 
@@ -74,10 +74,12 @@ class RoomDetailsViewController: UITableViewController {
             let cellInfo = BasicCellInfo(title: room.name, subtitle: LocalizedStrings.Common.name)
             cell.configure(with: cellInfo)
             return cell
-        case .papers:
+        case .sessions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "paperCell", for: indexPath)
-                as? BasicTableViewCell, let papers = room?.papers else { break }
-            cell.configure(with: BasicCellInfo(with: papers[indexPath.row]))
+                as? BasicTableViewCell, let sessions = room?.sessions else { break }
+            let session = sessions[indexPath.row]
+            let cellInfo = BasicCellInfo(title: session.name, subtitle: session.date.dateAndTime())
+            cell.configure(with: cellInfo)
             return cell
         }
         fatalError("Couldn't find cell for index path: \(String(describing: indexPath))")
@@ -94,14 +96,14 @@ class RoomDetailsViewController: UITableViewController {
         switch section {
         case .spotlight, .info:
             return 1
-        case .papers:
-            return room?.papers?.count ?? 0
+        case .sessions:
+            return room?.sessions?.count ?? 0
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard sections[indexPath.section] == .papers, let paperId = room?.papers?[indexPath.row].id else { return }
-        perform(segue: StoryboardSegue.Room.paperDetails, sender: paperId)
+        guard sections[indexPath.section] == .sessions, let session = room?.sessions?[indexPath.row] else { return }
+        perform(segue: StoryboardSegue.Room.sessionDetails, sender: session.id)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -124,9 +126,9 @@ class RoomDetailsViewController: UITableViewController {
         case .info:
             sectionTitle = LocalizedStrings.Common.info
             backgroundColor = Theme.secondaryColor
-        case .papers:
-            guard room?.papers?.count ?? 0 > 0 else { return nil }
-            sectionTitle = LocalizedStrings.Common.papers
+        case .sessions:
+            guard room?.sessions?.count ?? 0 > 0 else { return nil }
+            sectionTitle = LocalizedStrings.Common.sessions
             backgroundColor = Theme.tertiaryColor
         default:
             return nil

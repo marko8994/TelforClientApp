@@ -20,9 +20,9 @@ class SpotlightCell: UITableViewCell {
     
     func configure(with imagePath: String?) {
         if let imagePath = imagePath, let imageUrl = URL(string: imagePath) {
-            headerImage.kf.setImage(with: imageUrl, placeholder: Assets.spotlightPlaceholder.image) 
+            headerImage.kf.setImage(with: imageUrl, placeholder: Assets.bigAvatarPlaceholder.image) 
         } else {
-            headerImage.image = Assets.spotlightPlaceholder.image
+            headerImage.image = Assets.bigAvatarPlaceholder.image
         }
     }
 }

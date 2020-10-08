@@ -19,13 +19,19 @@ internal enum StoryboardSegue {
     case authorDetails
     case paperDetails
     case roomDetails
+    case sessionDetails
   }
   internal enum Paper: String, SegueType {
     case authorDetails
     case roomDetails
   }
   internal enum Room: String, SegueType {
+    case sessionDetails
+  }
+  internal enum Session: String, SegueType {
+    case authorDetails
     case paperDetails
+    case roomDetails
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

@@ -38,17 +38,25 @@ class AuthorDetailsViewController: UITableViewController {
         case position
     }
     
+    private lazy var clientApiService = ClientApiService()
+    
     var authorId: String!
     
     private var author: Author!
     
     private var sections: [AuthorSection] {
-        return [.spotlight, .info, .biography, .papers]
+        guard author != nil else { return [AuthorSection]() }
+        var sections: [AuthorSection] = [.info]
+        if author.biography != nil {
+            sections.append(.biography)
+        }
+        if let papers = author.papers, papers.count > 0 {
+            sections.append(.papers)
+        }
+        return sections
     }
         
     private var infoRows: [AuthorInfoRow] = [.name, .organization, .position]
-    
-    private lazy var clientApiService = ClientApiService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +82,8 @@ class AuthorDetailsViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch Segues(segue) {
         case .paperDetails:
-            guard let viewController = segue.destination as? PaperDetailsViewController,
+            guard let viewController = segue.destination
+                as? PaperDetailsViewController,
                 let paperId = sender as? String else { return }
             viewController.paperId = paperId
         default:
@@ -95,12 +104,12 @@ class AuthorDetailsViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = sections[indexPath.section]
         switch section {
         case .spotlight:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "spotlightCell", for: indexPath)
+            guard let cell = tableView
+                .dequeueReusableCell(withIdentifier: "spotlightCell", for: indexPath)
                 as? SpotlightCell else { break }
             cell.configure(with: author?.imagePath)
             return cell
@@ -125,7 +134,6 @@ class AuthorDetailsViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return sections.count
     }
 
@@ -144,11 +152,6 @@ class AuthorDetailsViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard sections[indexPath.section] == .papers, let paperId = author?.papers?[indexPath.row].id else { return }
-        perform(segue: Segues.paperDetails, sender: paperId )
-    }
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let section = sections[indexPath.section]
         switch section {
@@ -157,6 +160,12 @@ class AuthorDetailsViewController: UITableViewController {
         default:
             return UITableView.automaticDimension
         }
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            didSelectRowAt indexPath: IndexPath) {
+        guard sections[indexPath.section] == .papers, let paperId = author?.papers?[indexPath.row].id else { return }
+        perform(segue: Segues.paperDetails, sender: paperId )
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

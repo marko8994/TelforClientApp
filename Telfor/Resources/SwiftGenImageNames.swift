@@ -19,7 +19,9 @@
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 public enum Assets {
   public static let avatarPlaceholder = ImageAsset(name: "avatarPlaceholder")
+  public static let bigAvatarPlaceholder = ImageAsset(name: "bigAvatarPlaceholder")
   public static let spotlightPlaceholder = ImageAsset(name: "spotlightPlaceholder")
+  public static let telfor = ImageAsset(name: "telfor")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

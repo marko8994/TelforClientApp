@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct HomeModel: Codable {
+public struct SecodanryInfoModel: Codable {
     let name: String
     let imagePaths: String
     let authors: [LightAuthor]

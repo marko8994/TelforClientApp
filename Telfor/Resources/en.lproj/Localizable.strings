@@ -9,6 +9,7 @@
 "Common.Authors" = "Authors";
 "Common.Papers" = "Papers";
 "Common.Rooms" = "Rooms";
+"Common.Sessions" = "Sessions";
 "Common.Room" = "Room";
 "Common.ViewAll" = "View all";
 "Common.Name" = "Name";
@@ -19,6 +20,7 @@
 "Common.AuthorDetails" = "Author details";
 "Common.PaperDetails" = "Paper details";
 "Common.RoomDetails" = "Room details";
+"Common.SessionDetails" = "Session details";
 "Common.Title" = "Title";
 "Common.PaperType" = "Paper type";
 "Common.QuestionsForm" = "QuestionForm";
@@ -31,6 +33,8 @@
 "Common.EndDate" = "End date";
 "Common.Survey" = "Survey";
 "Common.Contact" = "Contact";
+"Common.Chairpersons" = "Chairpersons";
+
 
 
 

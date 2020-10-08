@@ -14,7 +14,7 @@ class SecondaryViewController: UITableViewController {
     
     private typealias Segues = StoryboardSegue.Main
     
-    private enum HomeSection: Int {
+    private enum SecondaryInfoSection: Int {
         case spotlight = 0
         case authors
         case papers
@@ -24,13 +24,13 @@ class SecondaryViewController: UITableViewController {
     var personInfo = (name: "", age: 5)
     
     private var model: SecodanryInfoModel!
-    private var cellInfos = [HomeSection: [BasicCellInfo]]()
+    private var cellInfos = [SecondaryInfoSection: [BasicCellInfo]]()
     
     weak var cellActionsDelegate: CellActionsDelegate?
     
-    private var sections: [HomeSection] = [.spotlight, .authors, .papers, .rooms]
+    private var sections: [SecondaryInfoSection] = [.spotlight, .authors, .papers, .rooms]
     
-    private lazy var clientApiService = ClientApiService.shared
+    private lazy var clientApiService = ClientApiService()
     
     private var imagePaths: [String]? {
         guard let model = model else { return nil }
@@ -48,8 +48,9 @@ class SecondaryViewController: UITableViewController {
         self.navigationController?.tabBarItem.title = model?.name
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        if self.navigationController?.tabBarController?.selectedIndex == 1 {
+    override func viewDidDisappear(_ animated: Bool) {
+        if let tabIndex = self.navigationController?.tabBarController?.selectedIndex,
+            let tabItem = TabBarItem(rawValue: tabIndex), tabItem != .secondary {
             self.navigationController?.tabBarItem.title = ""
         }
     }
@@ -72,21 +73,21 @@ class SecondaryViewController: UITableViewController {
     private func setupCellInfos() {
         var authorCellInfos = [BasicCellInfo]()
         for author in model.authors {
-            let userData = (section: HomeSection.authors, authorUid: author.id)
+            let userData = (section: SecondaryInfoSection.authors, authorUid: author.id)
             let cellInfo = BasicCellInfo(userData: userData, imagePath: author.imagePath, title: author.name)
             authorCellInfos.append(cellInfo)
         }
         cellInfos[.authors] = authorCellInfos
         var paperCellInfos = [BasicCellInfo]()
         for paper in model.papers {
-            let userData = (section: HomeSection.papers, paperId: paper.id)
+            let userData = (section: SecondaryInfoSection.papers, paperId: paper.id)
             let cellInfo = BasicCellInfo(with: paper, and: userData)
             paperCellInfos.append(cellInfo)
         }
         cellInfos[.papers] = paperCellInfos
         var roomCellInfos = [BasicCellInfo]()
         for room in model.rooms {
-            let userData = (section: HomeSection.rooms, paperId: room.id)
+            let userData = (section: SecondaryInfoSection.rooms, paperId: room.id)
             let cellInfo = BasicCellInfo(userData: userData, title: room.name)
             roomCellInfos.append(cellInfo)
         }
@@ -173,11 +174,11 @@ extension SecondaryViewController {
         switch section {
         case .papers:
             guard let cellInfo = cellInfos[section]?[indexPath.row],
-                let params = cellInfo.userData as? (HomeSection, String) else { return }
+                let params = cellInfo.userData as? (SecondaryInfoSection, String) else { return }
             perform(segue: Segues.paperDetails, sender: params.1)
         case .rooms:
             guard let cellInfo = cellInfos[section]?[indexPath.row],
-                let params = cellInfo.userData as? (HomeSection, String) else { return }
+                let params = cellInfo.userData as? (SecondaryInfoSection, String) else { return }
             perform(segue: Segues.roomDetails, sender: params.1)
         default:
             return
@@ -245,7 +246,7 @@ extension SecondaryViewController {
 extension SecondaryViewController: CollectionContainerActionDelegate {
     
     public func cell(_ cell: CollectionContainerCell, collectionItemSelectedWithUserData userData: Any?) {
-        if let params = userData as? (HomeSection, String), params.0 == .authors {
+        if let params = userData as? (SecondaryInfoSection, String), params.0 == .authors {
             perform(segue: Segues.authorDetails, sender: params.1)
         }
     }

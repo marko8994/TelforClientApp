@@ -38,10 +38,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="infoCell" textLabel="NlA-z2-pCV" detailTextLabel="XgG-La-1mG" style="IBUITableViewCellStyleSubtitle" id="ZUL-Uv-MDl" customClass="BasicTableViewCell" customModule="Telfor" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="278" width="414" height="55.5"/>
+                                <rect key="frame" x="0.0" y="278" width="414" height="61.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZUL-Uv-MDl" id="QcJ-uI-AWG">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="61.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NlA-z2-pCV">
@@ -52,7 +52,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XgG-La-1mG">
-                                            <rect key="frame" x="20" y="29.5" width="40.5" height="18"/>
+                                            <rect key="frame" x="20" y="32.5" width="40.5" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <nil key="textColor"/>
@@ -62,7 +62,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="paperCell" textLabel="ijw-OR-RZG" detailTextLabel="5yZ-nx-1gQ" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="XwR-NN-5Yt" userLabel="PaperCell" customClass="BasicTableViewCell" customModule="Telfor" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="333.5" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="339.5" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XwR-NN-5Yt" id="PpJ-gw-zyP">
                                     <rect key="frame" x="0.0" y="0.0" width="383" height="50"/>
@@ -92,17 +92,17 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="Dcl-GS-9ex" kind="show" identifier="paperDetails" id="fdg-hC-flT"/>
+                        <segue destination="Dcl-GS-9ex" kind="show" identifier="sessionDetails" id="fdg-hC-flT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0GO-KA-glW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-513" y="185"/>
         </scene>
-        <!--PaperDetailsViewController-->
+        <!--SessionDetailsViewController-->
         <scene sceneID="Q1U-NJ-FRf">
             <objects>
-                <viewControllerPlaceholder storyboardName="Paper" referencedIdentifier="PaperDetailsViewController" id="Dcl-GS-9ex" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Session" referencedIdentifier="SessionDetailsViewController" id="Dcl-GS-9ex" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="MZk-UZ-KVD"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49n-1m-oVw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

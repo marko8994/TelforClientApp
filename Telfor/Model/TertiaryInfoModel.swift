@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct InfoModel: Codable {
+public struct TertiaryInfoModel: Codable {
     let name: String
     let description: String
     let imagePaths: String

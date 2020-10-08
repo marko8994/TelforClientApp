@@ -27,7 +27,7 @@ internal enum StoryboardScene {
   internal enum Main: StoryboardType {
     internal static let storyboardName = "Main"
 
-    internal static let initialScene = InitialSceneType<UIKit.UITabBarController>(storyboard: Main.self)
+    internal static let initialScene = InitialSceneType<TabBarViewController>(storyboard: Main.self)
   }
   internal enum Paper: StoryboardType {
     internal static let storyboardName = "Paper"
@@ -42,6 +42,13 @@ internal enum StoryboardScene {
     internal static let initialScene = InitialSceneType<RoomDetailsViewController>(storyboard: Room.self)
 
     internal static let roomDetailsViewController = SceneType<RoomDetailsViewController>(storyboard: Room.self, identifier: "RoomDetailsViewController")
+  }
+  internal enum Session: StoryboardType {
+    internal static let storyboardName = "Session"
+
+    internal static let initialScene = InitialSceneType<SessionDetailsViewController>(storyboard: Session.self)
+
+    internal static let sessionDetailsViewController = SceneType<SessionDetailsViewController>(storyboard: Session.self, identifier: "SessionDetailsViewController")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

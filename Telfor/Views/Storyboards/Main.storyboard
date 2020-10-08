@@ -16,19 +16,20 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="43E-Al-vjy" kind="relationship" relationship="viewControllers" id="Ycc-CK-AaZ"/>
                         <segue destination="vGy-eR-dQS" kind="relationship" relationship="viewControllers" id="Moh-gU-TzU"/>
                         <segue destination="i1g-Fx-BIQ" kind="relationship" relationship="viewControllers" id="sXp-Ru-PYg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lo4-0U-LZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-268" y="-6"/>
+            <point key="canvasLocation" x="-788" y="-439"/>
         </scene>
-        <!--Home-->
+        <!--Secondary-->
         <scene sceneID="k2B-rR-qxh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vGy-eR-dQS" userLabel="Home" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" image="radiowaves.right" catalog="system" largeContentSizeImage="radiowaves.right" id="urC-td-6L5">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vGy-eR-dQS" userLabel="Secondary" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" image="dot.radiowaves.left.and.right" catalog="system" largeContentSizeImage="dot.radiowaves.left.and.right" id="urC-td-6L5">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
                         <color key="badgeColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
@@ -45,12 +46,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="opp-tF-cS3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="616" y="-439"/>
+            <point key="canvasLocation" x="575" y="-439"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Secondary View Controller-->
         <scene sceneID="RVB-cW-bIl">
             <objects>
-                <tableViewController id="hwn-Fm-j7e" customClass="HomeViewController" customModule="Telfor" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="hwn-Fm-j7e" customClass="SecondaryViewController" customModule="Telfor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xfv-Qo-41U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -270,10 +271,10 @@
             </objects>
             <point key="canvasLocation" x="2388" y="-334"/>
         </scene>
-        <!--Info-->
+        <!--Tertiary-->
         <scene sceneID="rLj-vW-LMj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1g-Fx-BIQ" userLabel="Info" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1g-Fx-BIQ" userLabel="Tertiary" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="radiowaves.left" catalog="system" largeContentSizeImage="radiowaves.left" id="BJX-q9-Iwj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ES0-uG-5WQ">
@@ -289,10 +290,10 @@
             </objects>
             <point key="canvasLocation" x="649.27536231884062" y="317.41071428571428"/>
         </scene>
-        <!--Info Details View Controller-->
+        <!--Tertiary View Controller-->
         <scene sceneID="Pgb-jy-Csh">
             <objects>
-                <tableViewController id="CaJ-wQ-qBm" customClass="InfoDetailsViewController" customModule="Telfor" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="CaJ-wQ-qBm" customClass="TertiaryViewController" customModule="Telfor" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cti-Yf-owH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -403,8 +404,108 @@
             </objects>
             <point key="canvasLocation" x="1693" y="317"/>
         </scene>
+        <!--Primary View Controller-->
+        <scene sceneID="BxB-Xx-AlX">
+            <objects>
+                <tableViewController id="F5Q-kx-dr0" customClass="PrimaryViewController" customModule="Telfor" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yac-Bj-2wi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="spotlightCell" rowHeight="250" id="0QG-ih-yw5" userLabel="SpotlightCell" customClass="SpotlightCell" customModule="Telfor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="250"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0QG-ih-yw5" id="Aha-lc-PLG">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0R3-13-IKY">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="0R3-13-IKY" firstAttribute="top" secondItem="0QG-ih-yw5" secondAttribute="top" id="0u4-p6-eUD"/>
+                                    <constraint firstItem="0R3-13-IKY" firstAttribute="leading" secondItem="0QG-ih-yw5" secondAttribute="leading" id="6m5-ee-Xif"/>
+                                    <constraint firstAttribute="bottom" secondItem="0R3-13-IKY" secondAttribute="bottom" id="fK8-qe-6Rb"/>
+                                    <constraint firstAttribute="trailing" secondItem="0R3-13-IKY" secondAttribute="trailing" id="yyY-16-3kz"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="headerImage" destination="0R3-13-IKY" id="MgC-1s-cMp"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="sessionCell" textLabel="nC0-c8-JCT" detailTextLabel="Cxk-pI-yOE" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="ot2-Q1-0DQ" userLabel="PaperCell" customClass="BasicTableViewCell" customModule="Telfor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="278" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ot2-Q1-0DQ" id="UEL-DG-3m7">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nC0-c8-JCT">
+                                            <rect key="frame" x="20" y="6" width="36.5" height="21.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cxk-pI-yOE">
+                                            <rect key="frame" x="20" y="27.5" width="54.5" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="F5Q-kx-dr0" id="V0r-Fj-PGq"/>
+                            <outlet property="delegate" destination="F5Q-kx-dr0" id="W3P-cY-wg3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Jb2-ej-kAf"/>
+                    <connections>
+                        <segue destination="2aG-Gq-lyA" kind="show" identifier="sessionDetails" id="Qsc-L6-Lgy"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w4V-3x-msK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1484.057971014493" y="-1244.1964285714284"/>
+        </scene>
+        <!--Primary-->
+        <scene sceneID="5YX-2X-4J1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="43E-Al-vjy" userLabel="Primary" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="radiowaves.right" catalog="system" largeContentSizeImage="radiowaves.right" id="7TA-G4-gKn"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JIF-8n-l5F">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="F5Q-kx-dr0" kind="relationship" relationship="rootViewController" id="BIp-jo-dvQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q6g-g1-022" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="573.91304347826087" y="-1244.1964285714284"/>
+        </scene>
+        <!--SessionDetailsViewController-->
+        <scene sceneID="es0-UP-uHL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Session" referencedIdentifier="SessionDetailsViewController" id="2aG-Gq-lyA" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ReQ-kl-eWh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8pT-Gw-gOJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2301" y="-1339"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="dot.radiowaves.left.and.right" catalog="system" width="128" height="89"/>
         <image name="radiowaves.left" catalog="system" width="90" height="128"/>
         <image name="radiowaves.right" catalog="system" width="90" height="128"/>
     </resources>

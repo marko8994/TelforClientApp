@@ -11,29 +11,35 @@ import Foundation
 public let baseUrl = "http://127.0.0.1:8080"
 
 public enum ClientApiRouter {
-    case getAll(Int)
+    case getPrimaryInfo
+    case getSecondaryInfo(Int)
+    case getTertiaryInfo
+    case getSession(String)
     case getAuthor(String)
     case getPaper(String)
     case getRoom(String)
-    case getInfo
 
     public func asUrl() -> URL? {
         let urlPath = baseUrl + "/api/u"
         guard let url = URL(string: urlPath) else { return nil }
         switch self {
-        case .getAll(let limit):
+        case .getPrimaryInfo:
+            return url.appendingPathComponent("primaryInfo")
+        case .getSecondaryInfo(let limit):
             guard let url = add(queryItem: "limit", with: String(limit), to: urlPath) else {
                 return nil
             }
-            return url.appendingPathComponent("home")
+            return url.appendingPathComponent("secondaryInfo")
+        case .getTertiaryInfo:
+            return url.appendingPathComponent("tertiaryInfo")
+        case .getSession(let uid):
+            return url.appendingPathComponent("session").appendingPathComponent(uid)
         case .getAuthor(let uid):
             return url.appendingPathComponent("author").appendingPathComponent(uid)
         case .getPaper(let uid):
             return url.appendingPathComponent("paper").appendingPathComponent(uid)
         case .getRoom(let uid):
             return url.appendingPathComponent("room").appendingPathComponent(uid)
-        case .getInfo:
-            return url.appendingPathComponent("info")
         }
     }
     

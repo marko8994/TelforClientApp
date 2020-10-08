@@ -12,16 +12,56 @@ public typealias SingleServiceResult<T> = (T?, Error?) -> Void
 public typealias ListServiceResult<T> = ([T]?, Error?) -> Void
 
 public class ClientApiService {
-    
-    public static let shared = ClientApiService()
 
     let defaultSession = URLSession(configuration: .default)
 
     var dataTask: URLSessionDataTask?
-
-    func getAll(limit: Int, completion: @escaping SingleServiceResult<HomeModel>) {
+    
+    private func dateDecoder() -> JSONDecoder {
+        let decoder = JSONDecoder()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone.current
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        return decoder
+    }
+    
+    func getPrimaryInfo(completion: @escaping SingleServiceResult<PrimaryInfoModel>) {
         dataTask?.cancel()
-        guard let url = ClientApiRouter.getAll(limit).asUrl() else {
+        guard let url = ClientApiRouter.getPrimaryInfo.asUrl() else {
+            completion(nil, nil)
+            print("Invalid url passed for request")
+            return
+        }
+        dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else {
+                completion(nil, nil)
+                return
+            }
+            defer {
+                self.dataTask = nil
+            }
+            if let error = error {
+              completion(nil, error)
+            } else if let data = data {
+                do {
+                    let primaryInfo: PrimaryInfoModel = try self.dateDecoder().decode(PrimaryInfoModel.self, from: data)
+                    DispatchQueue.main.async {
+                      completion(primaryInfo, nil)
+                    }
+                } catch {
+                    completion(nil, error)
+                    print("Error during JSON serialization: \(error.localizedDescription)")
+                }
+            }
+        }
+        dataTask?.resume()
+    }
+
+    func getSecondaryInfo(limit: Int, completion: @escaping SingleServiceResult<SecodanryInfoModel>) {
+        dataTask?.cancel()
+        guard let url = ClientApiRouter.getSecondaryInfo(limit).asUrl() else {
             completion(nil, nil)
             print("Invalid url passed for request")
             return
@@ -34,9 +74,9 @@ public class ClientApiService {
               completion(nil, error)
             } else if let data = data {
                 do {
-                    let homeData: HomeModel = try JSONDecoder().decode(HomeModel.self, from: data)
+                    let secondaryInfo: SecodanryInfoModel = try JSONDecoder().decode(SecodanryInfoModel.self, from: data)
                     DispatchQueue.main.async {
-                      completion(homeData, nil)
+                      completion(secondaryInfo, nil)
                     }
                 } catch {
                     completion(nil, error)
@@ -47,30 +87,60 @@ public class ClientApiService {
         dataTask?.resume()
     }
     
-    func getInfo(completion: @escaping SingleServiceResult<InfoModel>) {
+    func getTertiaryInfo(completion: @escaping SingleServiceResult<TertiaryInfoModel>) {
         dataTask?.cancel()
-        guard let url = ClientApiRouter.getInfo.asUrl() else {
+        guard let url = ClientApiRouter.getTertiaryInfo.asUrl() else {
             completion(nil, nil)
             print("Invalid url passed for request")
             return
         }
         dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else {
+                completion(nil, nil)
+                return
+            }
             defer {
-              self?.dataTask = nil
+              self.dataTask = nil
             }
             if let error = error {
               completion(nil, error)
             } else if let data = data {
                 do {
-                    let decoder = JSONDecoder()
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                    dateFormatter.locale = Locale.current
-                    dateFormatter.timeZone = TimeZone.current
-                    decoder.dateDecodingStrategy = .formatted(dateFormatter)
-                    let infoModel: InfoModel = try decoder.decode(InfoModel.self, from: data)
+                    let tertiaryInfo: TertiaryInfoModel = try self.dateDecoder().decode(TertiaryInfoModel.self, from: data)
                     DispatchQueue.main.async {
-                      completion(infoModel, nil)
+                      completion(tertiaryInfo, nil)
+                    }
+                } catch {
+                    completion(nil, error)
+                    print("Error during JSON serialization: \(error.localizedDescription)")
+                }
+            }
+        }
+        dataTask?.resume()
+    }
+    
+    func getSession(with id: String, completion: @escaping SingleServiceResult<Session>) {
+        dataTask?.cancel()
+        guard let url = ClientApiRouter.getSession(id).asUrl() else {
+            completion(nil, nil)
+            print("Invalid url passed for request")
+            return
+        }
+        dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else {
+                completion(nil, nil)
+                return
+            }
+            defer {
+              self.dataTask = nil
+            }
+            if let error = error {
+              completion(nil, error)
+            } else if let data = data {
+                do {
+                    let session: Session = try self.dateDecoder().decode(Session.self, from: data)
+                    DispatchQueue.main.async {
+                      completion(session, nil)
                     }
                 } catch {
                     completion(nil, error)
@@ -117,20 +187,18 @@ public class ClientApiService {
             return
         }
         dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else {
+                completion(nil, nil)
+                return
+            }
             defer {
-              self?.dataTask = nil
+              self.dataTask = nil
             }
             if let error = error {
               completion(nil, error)
             } else if let data = data {
                 do {
-                    let decoder = JSONDecoder()
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                    dateFormatter.locale = Locale.current
-                    dateFormatter.timeZone = TimeZone.current
-                    decoder.dateDecodingStrategy = .formatted(dateFormatter)
-                    let paper: Paper = try decoder.decode(Paper.self, from: data)
+                    let paper: Paper = try self.dateDecoder().decode(Paper.self, from: data)
                     DispatchQueue.main.async {
                       completion(paper, nil)
                     }
@@ -151,14 +219,18 @@ public class ClientApiService {
             return
         }
         dataTask = defaultSession.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else {
+                completion(nil, nil)
+                return
+            }
             defer {
-              self?.dataTask = nil
+              self.dataTask = nil
             }
             if let error = error {
               completion(nil, error)
             } else if let data = data {
                 do {
-                    let room: Room = try JSONDecoder().decode(Room.self, from: data)
+                    let room: Room = try self.dateDecoder().decode(Room.self, from: data)
                     DispatchQueue.main.async {
                       completion(room, nil)
                     }

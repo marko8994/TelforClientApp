@@ -8,6 +8,12 @@
 
 import UIKit
 
+public enum TabBarItem: Int {
+    case primary = 0
+    case secondary
+    case tertiary
+}
+
 class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {

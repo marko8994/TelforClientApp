@@ -19,6 +19,8 @@ internal enum LocalizedStrings {
     internal static let authors = LocalizedStrings.tr("Localizable", "Common.Authors")
     /// Biography
     internal static let biography = LocalizedStrings.tr("Localizable", "Common.Biography")
+    /// Chairpersons
+    internal static let chairpersons = LocalizedStrings.tr("Localizable", "Common.Chairpersons")
     /// Contact
     internal static let contact = LocalizedStrings.tr("Localizable", "Common.Contact")
     /// End date
@@ -49,6 +51,10 @@ internal enum LocalizedStrings {
     internal static let roomDetails = LocalizedStrings.tr("Localizable", "Common.RoomDetails")
     /// Rooms
     internal static let rooms = LocalizedStrings.tr("Localizable", "Common.Rooms")
+    /// Session details
+    internal static let sessionDetails = LocalizedStrings.tr("Localizable", "Common.SessionDetails")
+    /// Sessions
+    internal static let sessions = LocalizedStrings.tr("Localizable", "Common.Sessions")
     /// Special paper
     internal static let specialPaper = LocalizedStrings.tr("Localizable", "Common.SpecialPaper")
     /// Start date

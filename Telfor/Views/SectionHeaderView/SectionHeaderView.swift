@@ -35,7 +35,7 @@ public class SectionHeaderView: UIView {
         self.actionDelegate?.header(self, selectedWith: userData)
     }
 
-    public func configure(userData: Any?,
+    public func configure(userData: Any? = nil,
                           title: String? = nil,
                           influencerTitle: String? = nil,
                           hideButton: Bool = false,

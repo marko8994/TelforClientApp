@@ -38,14 +38,22 @@ class AuthorDetailsViewController: UITableViewController {
         case position
     }
     
-    private lazy var clientApiService = ClientApiService.shared
+    private lazy var clientApiService = ClientApiService()
     
     var authorId: String!
     
     private var author: Author!
     
     private var sections: [AuthorSection] {
-        return [.spotlight, .info, .biography, .papers]
+        guard author != nil else { return [AuthorSection]() }
+        var sections: [AuthorSection] = [.info]
+        if author.biography != nil {
+            sections.append(.biography)
+        }
+        if let papers = author.papers, papers.count > 0 {
+            sections.append(.papers)
+        }
+        return sections
     }
         
     private var infoRows: [AuthorInfoRow] = [.name, .organization, .position]

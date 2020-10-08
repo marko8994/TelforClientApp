@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InfoDetailsViewController: UITableViewController {
+class TertiaryViewController: UITableViewController {
     
     private enum InfoSection: Int {
         case spotlight = 0
@@ -27,9 +27,9 @@ class InfoDetailsViewController: UITableViewController {
     
     private var infoRows: [InfoRow] = [.startDate, .endDate, .surveyForm, .contact]
     
-    private var infoModel: InfoModel!
+    private var infoModel: TertiaryInfoModel!
     
-    private lazy var clientApiService = ClientApiService.shared
+    private lazy var clientApiService = ClientApiService()
     
     private var imagePaths: [String]? {
         guard let model = infoModel else { return nil }
@@ -46,12 +46,15 @@ class InfoDetailsViewController: UITableViewController {
         self.navigationController?.tabBarItem.title = infoModel?.name
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.tabBarItem.title = ""
+    override func viewDidDisappear(_ animated: Bool) {
+        if let tabIndex = self.navigationController?.tabBarController?.selectedIndex,
+            let tabItem = TabBarItem(rawValue: tabIndex), tabItem != .tertiary {
+            self.navigationController?.tabBarItem.title = ""
+        }
     }
     
     private func fetchData() {
-        clientApiService.getInfo { (response, error) in
+        clientApiService.getTertiaryInfo { (response, error) in
             guard error == nil else {
                 return
             }
@@ -120,11 +123,6 @@ class InfoDetailsViewController: UITableViewController {
             return infoRows.count
         }
     }
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard sections[indexPath.section] == .papers, let paperId = room?.papers?[indexPath.row].id else { return }
-//        perform(segue: StoryboardSegue.Room.paperDetails, sender: paperId)
-//    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let section = sections[indexPath.section]
